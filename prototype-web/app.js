@@ -40,7 +40,8 @@ function isUnsafeQuestion(question) {
 function scoreEntry(question, entry) {
   const normalized = normalize(question);
   return entry.keywords.reduce((score, keyword) => {
-    return normalized.includes(normalize(keyword)) ? score + 1 : score;
+    const normalizedKeyword = normalize(keyword);
+    return normalized.includes(normalizedKeyword) ? score + normalizedKeyword.length : score;
   }, 0);
 }
 

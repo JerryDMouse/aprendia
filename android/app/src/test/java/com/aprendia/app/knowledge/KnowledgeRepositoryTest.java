@@ -70,4 +70,20 @@ public final class KnowledgeRepositoryTest {
         KnowledgeEntry entry = repository.findBestEntry("La suma de un sustantivo en el rio");
         assertNotNull(entry);
     }
+
+    @Test
+    public void findBestEntry_prefersLongerKeywordOverGenericWord() {
+        KnowledgeRepository specificRepository = new KnowledgeRepository(List.of(
+                new KnowledgeEntry("luna", "Ciencias naturales", "La Luna",
+                        new String[]{"luna", "satelite", "tierra"},
+                        "La Luna es el satelite natural de la Tierra."),
+                new KnowledgeEntry("fases-luna", "Ciencias naturales", "Fases de la Luna",
+                        new String[]{"fases de la luna", "luna nueva", "luna llena", "cuarto creciente", "cuarto menguante"},
+                        "Las fases de la Luna son los cambios en su iluminacion.")
+        ));
+
+        KnowledgeEntry entry = specificRepository.findBestEntry("Que son las fases de la luna?");
+        assertNotNull(entry);
+        assertEquals("Fases de la Luna", entry.getTitle());
+    }
 }

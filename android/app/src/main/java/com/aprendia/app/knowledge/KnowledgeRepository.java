@@ -35,8 +35,9 @@ public final class KnowledgeRepository {
     private int score(String normalizedQuestion, KnowledgeEntry entry) {
         int result = 0;
         for (String keyword : entry.getKeywords()) {
-            if (normalizedQuestion.contains(normalize(keyword))) {
-                result += 1;
+            String normalizedKeyword = normalize(keyword);
+            if (normalizedQuestion.contains(normalizedKeyword)) {
+                result += normalizedKeyword.length();
             }
         }
         return result;

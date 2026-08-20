@@ -6,10 +6,10 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 
 | Componente | Estado |
 |---|---|
-| App Android (v0.3.0) | Disponible en `android/` |
+| App Android (v0.3.1) | Disponible en `android/` |
 | Demo web offline | Disponible en `prototype-web/` |
 | Base de conocimiento local | Precargada, cerrada y de solo lectura (117 temas) |
-| Búsqueda offline | Textual por palabras clave |
+| Búsqueda offline | Textual por palabras clave, priorizando coincidencias específicas |
 | Respuestas controladas | Basadas solo en fragmentos encontrados |
 | Filtro de seguridad infantil | Bloquea temas inapropiados antes y después de responder |
 | Historial local | Android: `SharedPreferences`; Web: `localStorage` |
@@ -27,6 +27,7 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 | 0.2.0 | Rediseño UX infantil (colores, Fredoka, chips, compositor cápsula, mascota) |
 | 0.2.1 | Micrófono con reconocimiento de voz `es-CO` y streaming de respuestas |
 | 0.3.0 | Base de conocimiento expandida a 117 temas desde 3 libros SEP de tercero (Ciencias Naturales, Español, Matemáticas) cargados desde `assets/knowledge/*.json` |
+| 0.3.1 | Búsqueda que prioriza coincidencias específicas (frases largas como "fases de la luna" sobre palabras genéricas como "luna") |
 
 ## Cómo Probar Rápido En Navegador
 
