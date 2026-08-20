@@ -1,11 +1,20 @@
 package com.aprendia.app;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.speech.RecognitionListener;
+import android.speech.RecognizerIntent;
+import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
@@ -27,17 +36,25 @@ import com.aprendia.app.domain.ChatRecord;
 import com.aprendia.app.knowledge.KnowledgeRepository;
 import com.aprendia.app.safety.SafetyFilter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public final class MainActivity extends Activity {
+    private static final int REQUEST_RECORD_AUDIO = 100;
+    private static final int STREAM_CHARS_PER_TICK = 3;
+    private static final long STREAM_TICK_MS = 30;
+
     private LinearLayout messagesLayout;
     private LinearLayout emptyState;
     private EditText questionInput;
     private ScrollView chatScroll;
+    private ImageButton micButton;
     private HistoryStore historyStore;
     private AnswerQuestionUseCase answerQuestionUseCase;
     private TextToSpeech textToSpeech;
+    private SpeechRecognizer speechRecognizer;
+    private final Handler handler = new Handler(Looper.getMainLooper());
     private Typeface font;
 
     private final int bgColor = Color.rgb(240, 244, 248);
@@ -60,21 +77,37 @@ public final class MainActivity extends Activity {
         emptyState = findViewById(R.id.empty_state);
         chatScroll = findViewById(R.id.chat_scroll);
         questionInput = findViewById(R.id.question_input);
+        micButton = findViewById(R.id.mic_button);
 
         configureComposer();
         configureChips();
         configureTopBar();
         configureTts();
-        renderHistory();
+        renderHistory(false);
     }
 
     @Override
     protected void onDestroy() {
+        if (speechRecognizer != null) {
+            speechRecognizer.destroy();
+        }
         if (textToSpeech != null) {
             textToSpeech.stop();
             textToSpeech.shutdown();
         }
+        handler.removeCallbacksAndMessages(null);
         super.onDestroy();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_RECORD_AUDIO && grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            startVoiceInput();
+        } else {
+            setListeningState(false);
+        }
     }
 
     private void configureTts() {
@@ -100,11 +133,7 @@ public final class MainActivity extends Activity {
         ImageButton sendButton = findViewById(R.id.send_button);
         sendButton.setOnClickListener(view -> askQuestion());
 
-        ImageButton micButton = findViewById(R.id.mic_button);
-        micButton.setOnClickListener(view -> {
-            questionInput.requestFocus();
-            showKeyboard();
-        });
+        micButton.setOnClickListener(view -> startVoiceInput());
     }
 
     private void configureChips() {
@@ -119,7 +148,7 @@ public final class MainActivity extends Activity {
         newChatButton.setTypeface(font, Typeface.BOLD);
         newChatButton.setOnClickListener(view -> {
             historyStore.clear();
-            renderHistory();
+            renderHistory(false);
         });
     }
 
@@ -137,27 +166,154 @@ public final class MainActivity extends Activity {
         historyStore.append(new ChatRecord(question, answer.getText(), answer.getSource(), System.currentTimeMillis()));
         questionInput.setText("");
         hideKeyboard();
-        renderHistory();
+        renderHistory(true);
     }
 
-    private void renderHistory() {
+    private void startVoiceInput() {
+        if (!SpeechRecognizer.isRecognitionAvailable(this)) {
+            questionInput.requestFocus();
+            showKeyboard();
+            return;
+        }
+        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_RECORD_AUDIO);
+            return;
+        }
+        listen();
+    }
+
+    private void listen() {
+        if (speechRecognizer == null) {
+            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+            speechRecognizer.setRecognitionListener(recognitionListener);
+        }
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "es-CO");
+        intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
+        intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, false);
+        setListeningState(true);
+        speechRecognizer.startListening(intent);
+    }
+
+    private void stopListening() {
+        if (speechRecognizer != null) {
+            speechRecognizer.stopListening();
+        }
+        setListeningState(false);
+    }
+
+    private void setListeningState(boolean listening) {
+        micButton.setBackgroundResource(listening
+                ? R.drawable.mic_button_listening_bg
+                : R.drawable.mic_button_bg);
+    }
+
+    private final RecognitionListener recognitionListener = new RecognitionListener() {
+        @Override
+        public void onReadyForSpeech(Bundle params) {
+        }
+
+        @Override
+        public void onBeginningOfSpeech() {
+        }
+
+        @Override
+        public void onRmsChanged(float rmsdB) {
+        }
+
+        @Override
+        public void onBufferReceived(byte[] buffer) {
+        }
+
+        @Override
+        public void onEndOfSpeech() {
+            setListeningState(false);
+        }
+
+        @Override
+        public void onError(int error) {
+            setListeningState(false);
+        }
+
+        @Override
+        public void onResults(Bundle results) {
+            setListeningState(false);
+            ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+            if (matches != null && !matches.isEmpty()) {
+                questionInput.setText(matches.get(0));
+                askQuestion();
+            }
+        }
+
+        @Override
+        public void onPartialResults(Bundle partialResults) {
+        }
+
+        @Override
+        public void onEvent(int eventType, Bundle params) {
+        }
+    };
+
+    private void renderHistory(boolean streamLast) {
         messagesLayout.removeAllViews();
         List<ChatRecord> records = historyStore.load();
         if (records.isEmpty()) {
             emptyState.setVisibility(View.VISIBLE);
             ImageView mascot = findViewById(R.id.mascot_image);
-            mascot.startAnimation(android.view.animation.AnimationUtils.loadAnimation(this, R.anim.mascot_bounce));
+            mascot.startAnimation(AnimationUtils.loadAnimation(this, R.anim.mascot_bounce));
             return;
         }
         emptyState.setVisibility(View.GONE);
-        for (ChatRecord record : records) {
+        for (int index = 0; index < records.size(); index += 1) {
+            ChatRecord record = records.get(index);
             addMessage(record.getQuestion(), true, null);
-            addMessage(record.getAnswer(), false, record.getSource());
+            boolean isLast = index == records.size() - 1;
+            if (isLast && streamLast) {
+                streamMessage(record.getAnswer(), record.getSource());
+            } else {
+                addMessage(record.getAnswer(), false, record.getSource());
+            }
         }
         chatScroll.post(() -> chatScroll.fullScroll(View.FOCUS_DOWN));
     }
 
     private void addMessage(String text, boolean isUser, String source) {
+        LinearLayout row = buildMessageRow(isUser);
+        TextView message = buildMessageBubble(text, isUser);
+        row.addView(message);
+        if (!isUser) {
+            appendMeta(row, text, source);
+        }
+        messagesLayout.addView(row);
+    }
+
+    private void streamMessage(String text, String source) {
+        LinearLayout row = buildMessageRow(false);
+        TextView message = buildMessageBubble("", false);
+        row.addView(message);
+        messagesLayout.addView(row);
+        chatScroll.post(() -> chatScroll.fullScroll(View.FOCUS_DOWN));
+
+        final int[] index = {0};
+        Runnable tick = new Runnable() {
+            @Override
+            public void run() {
+                index[0] = Math.min(index[0] + STREAM_CHARS_PER_TICK, text.length());
+                message.setText(text.substring(0, index[0]));
+                chatScroll.post(() -> chatScroll.fullScroll(View.FOCUS_DOWN));
+                if (index[0] >= text.length()) {
+                    message.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.celebrate));
+                    appendMeta(row, text, source);
+                } else {
+                    handler.postDelayed(this, STREAM_TICK_MS);
+                }
+            }
+        };
+        handler.post(tick);
+    }
+
+    private LinearLayout buildMessageRow(boolean isUser) {
         LinearLayout row = new LinearLayout(this);
         row.setOrientation(LinearLayout.VERTICAL);
         row.setGravity(isUser ? Gravity.END : Gravity.START);
@@ -167,7 +323,10 @@ public final class MainActivity extends Activity {
                 LinearLayout.LayoutParams.WRAP_CONTENT);
         rowParams.setMargins(0, 10, 0, 10);
         row.setLayoutParams(rowParams);
+        return row;
+    }
 
+    private TextView buildMessageBubble(String text, boolean isUser) {
         TextView message = new TextView(this);
         message.setText(text);
         message.setTextSize(17);
@@ -177,10 +336,9 @@ public final class MainActivity extends Activity {
 
         int maxWidth = (int) (getResources().getDisplayMetrics().widthPixels * 0.85f);
         message.setMaxWidth(maxWidth);
-        LinearLayout.LayoutParams messageParams = new LinearLayout.LayoutParams(
+        message.setLayoutParams(new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
-        message.setLayoutParams(messageParams);
+                LinearLayout.LayoutParams.WRAP_CONTENT));
 
         if (isUser) {
             message.setBackground(roundedBackground(blueColor, false));
@@ -189,10 +347,11 @@ public final class MainActivity extends Activity {
             message.setBackground(roundedBackground(surfaceColor, true));
             message.setPadding(dp(18), dp(14), dp(18), dp(14));
         }
+        return message;
+    }
 
-        row.addView(message);
-
-        if (!isUser && source != null && !source.isEmpty()) {
+    private void appendMeta(LinearLayout row, String text, String source) {
+        if (source != null && !source.isEmpty()) {
             TextView sourceView = new TextView(this);
             sourceView.setText("Fuente: " + source);
             sourceView.setTextColor(mintColor);
@@ -202,23 +361,19 @@ public final class MainActivity extends Activity {
             row.addView(sourceView);
         }
 
-        if (!isUser) {
-            Button listenButton = new Button(this);
-            listenButton.setText("Leer respuesta");
-            listenButton.setTypeface(font, Typeface.BOLD);
-            listenButton.setTextColor(inkColor);
-            listenButton.setTextSize(14);
-            listenButton.setBackground(listenBackground());
-            LinearLayout.LayoutParams listenParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    dp(44));
-            listenParams.setMargins(dp(18), dp(10), dp(18), 0);
-            listenButton.setLayoutParams(listenParams);
-            listenButton.setOnClickListener(view -> speak(text));
-            row.addView(listenButton);
-        }
-
-        messagesLayout.addView(row);
+        Button listenButton = new Button(this);
+        listenButton.setText("Escuchar");
+        listenButton.setTypeface(font, Typeface.BOLD);
+        listenButton.setTextColor(inkColor);
+        listenButton.setTextSize(14);
+        listenButton.setBackground(listenBackground());
+        LinearLayout.LayoutParams listenParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                dp(44));
+        listenParams.setMargins(dp(18), dp(10), dp(18), 0);
+        listenButton.setLayoutParams(listenParams);
+        listenButton.setOnClickListener(view -> speak(text));
+        row.addView(listenButton);
     }
 
     private GradientDrawable roundedBackground(int color, boolean outlined) {
