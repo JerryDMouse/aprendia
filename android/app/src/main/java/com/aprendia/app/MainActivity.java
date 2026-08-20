@@ -11,6 +11,7 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
+import android.speech.tts.UtteranceProgressListener;
 import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
@@ -57,6 +58,7 @@ public final class MainActivity extends Activity {
     private SpeechRecognizer speechRecognizer;
     private final Handler handler = new Handler(Looper.getMainLooper());
     private Typeface font;
+    private ImageButton speakingListenButton;
 
     private final int bgColor = Color.rgb(240, 244, 248);
     private final int surfaceColor = Color.rgb(255, 255, 255);
@@ -116,6 +118,21 @@ public final class MainActivity extends Activity {
         textToSpeech = new TextToSpeech(this, status -> {
             if (status == TextToSpeech.SUCCESS) {
                 textToSpeech.setLanguage(new Locale("es", "CO"));
+                textToSpeech.setOnUtteranceProgressListener(new UtteranceProgressListener() {
+                    @Override
+                    public void onStart(String utteranceId) {
+                    }
+
+                    @Override
+                    public void onDone(String utteranceId) {
+                        runOnUiThread(MainActivity.this::resetSpeakingListenButton);
+                    }
+
+                    @Override
+                    public void onError(String utteranceId) {
+                        runOnUiThread(MainActivity.this::resetSpeakingListenButton);
+                    }
+                });
             }
         });
     }
@@ -363,19 +380,43 @@ public final class MainActivity extends Activity {
             row.addView(sourceView);
         }
 
-        Button listenButton = new Button(this);
-        listenButton.setText("Escuchar");
-        listenButton.setTypeface(font, Typeface.BOLD);
-        listenButton.setTextColor(inkColor);
-        listenButton.setTextSize(14);
-        listenButton.setBackground(listenBackground());
+        ImageButton listenButton = new ImageButton(this);
+        listenButton.setImageResource(R.drawable.ic_volume);
+        listenButton.setBackgroundResource(R.drawable.listen_button_bg);
+        listenButton.setContentDescription("Escuchar respuesta");
+        listenButton.setScaleType(ImageView.ScaleType.CENTER);
+        listenButton.setPadding(dp(12), dp(12), dp(12), dp(12));
         LinearLayout.LayoutParams listenParams = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                dp(44));
+                dp(48),
+                dp(48));
         listenParams.setMargins(dp(18), dp(10), dp(18), 0);
         listenButton.setLayoutParams(listenParams);
-        listenButton.setOnClickListener(view -> speak(text));
+        listenButton.setOnClickListener(view -> {
+            if (speakingListenButton != null) {
+                setListenButtonIdle(speakingListenButton);
+            }
+            setListenButtonSpeaking(listenButton);
+            speak(text);
+        });
         row.addView(listenButton);
+    }
+
+    private void setListenButtonSpeaking(ImageButton button) {
+        speakingListenButton = button;
+        button.setColorFilter(Color.WHITE);
+        button.setBackgroundResource(R.drawable.listen_button_active_bg);
+    }
+
+    private void setListenButtonIdle(ImageButton button) {
+        button.clearColorFilter();
+        button.setBackgroundResource(R.drawable.listen_button_bg);
+    }
+
+    private void resetSpeakingListenButton() {
+        if (speakingListenButton != null) {
+            setListenButtonIdle(speakingListenButton);
+            speakingListenButton = null;
+        }
     }
 
     private GradientDrawable roundedBackground(int color, boolean outlined) {
@@ -385,14 +426,6 @@ public final class MainActivity extends Activity {
         if (outlined) {
             drawable.setStroke(dp(2), borderColor);
         }
-        return drawable;
-    }
-
-    private GradientDrawable listenBackground() {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setColor(bgColor);
-        drawable.setStroke(dp(2), borderColor);
-        drawable.setCornerRadius(dp(999));
         return drawable;
     }
 
