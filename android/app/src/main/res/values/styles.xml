@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
-        <item name="android:fontFamily">sans</item>
-        <item name="android:windowBackground">@color/aprendia_background</item>
-        <item name="android:colorAccent">@color/aprendia_green</item>
+        <item name="android:fontFamily">@font/fredoka</item>
+        <item name="android:windowBackground">@color/aprendia_bg</item>
+        <item name="android:colorAccent">@color/aprendia_mint</item>
+        <item name="android:statusBarColor">@color/aprendia_bg</item>
+        <item name="android:navigationBarColor">@color/aprendia_surface</item>
     </style>
 </resources>
