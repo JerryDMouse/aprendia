@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -43,9 +44,7 @@ public final class KnowledgeAssetsLoader {
         List<KnowledgeEntry> entries = new ArrayList<>();
         String raw;
         try (InputStream input = context.getAssets().open(assetPath)) {
-            byte[] bytes = new byte[input.available()];
-            int read = input.read(bytes);
-            raw = new String(bytes, 0, Math.max(read, 0), StandardCharsets.UTF_8);
+            raw = new String(readFully(input), StandardCharsets.UTF_8);
         }
         try {
             JSONArray array = new JSONArray(raw);
@@ -57,6 +56,16 @@ public final class KnowledgeAssetsLoader {
             Log.e(TAG, "JSON invalido en " + assetPath, e);
         }
         return entries;
+    }
+
+    private static byte[] readFully(InputStream input) throws IOException {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        byte[] chunk = new byte[8192];
+        int read;
+        while ((read = input.read(chunk)) != -1) {
+            buffer.write(chunk, 0, read);
+        }
+        return buffer.toByteArray();
     }
 
     private static KnowledgeEntry parseEntry(JSONObject object) throws JSONException {
