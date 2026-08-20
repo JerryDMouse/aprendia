@@ -1,0 +1,30 @@
+[
+  {
+    "id": "basico-fotosintesis",
+    "subject": "Ciencias naturales",
+    "title": "La fotosintesis",
+    "keywords": ["fotosintesis", "plantas", "sol", "hojas", "alimento"],
+    "content": "La fotosintesis es el proceso por el cual las plantas fabrican su alimento. Usan la luz del sol, agua del suelo y aire. Las hojas ayudan a realizar este proceso."
+  },
+  {
+    "id": "basico-suma",
+    "subject": "Matematicas",
+    "title": "La suma",
+    "keywords": ["suma", "sumar", "adicion", "juntar", "total"],
+    "content": "La suma sirve para juntar cantidades y saber cuanto hay en total. Por ejemplo, si tienes 2 mangos y te dan 3 mas, ahora tienes 5 mangos."
+  },
+  {
+    "id": "basico-sustantivo",
+    "subject": "Lenguaje",
+    "title": "El sustantivo",
+    "keywords": ["sustantivo", "nombre", "persona", "animal", "cosa", "lugar"],
+    "content": "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas. Por ejemplo: nina, perro, escuela, rio y cuaderno."
+  },
+  {
+    "id": "basico-agua",
+    "subject": "Educacion ambiental",
+    "title": "Cuidado del agua",
+    "keywords": ["agua", "cuidar", "rio", "quebrada", "ahorrar"],
+    "content": "El agua se cuida cerrando la llave cuando no se usa, no botando basura en rios o quebradas y usando solo la cantidad necesaria para las actividades diarias."
+  }
+]

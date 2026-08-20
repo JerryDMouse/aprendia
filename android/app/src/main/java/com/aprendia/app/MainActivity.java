@@ -33,6 +33,7 @@ import com.aprendia.app.data.HistoryStore;
 import com.aprendia.app.domain.Answer;
 import com.aprendia.app.domain.AnswerQuestionUseCase;
 import com.aprendia.app.domain.ChatRecord;
+import com.aprendia.app.knowledge.KnowledgeAssetsLoader;
 import com.aprendia.app.knowledge.KnowledgeRepository;
 import com.aprendia.app.safety.SafetyFilter;
 
@@ -69,7 +70,8 @@ public final class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         historyStore = new HistoryStore(this);
-        answerQuestionUseCase = new AnswerQuestionUseCase(new KnowledgeRepository(), new SafetyFilter());
+        answerQuestionUseCase = new AnswerQuestionUseCase(
+                new KnowledgeRepository(KnowledgeAssetsLoader.load(this)), new SafetyFilter());
         font = getResources().getFont(R.font.fredoka);
 
         setContentView(R.layout.activity_main);

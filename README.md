@@ -6,9 +6,9 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 
 | Componente | Estado |
 |---|---|
-| App Android (v0.2.1) | Disponible en `android/` |
+| App Android (v0.3.0) | Disponible en `android/` |
 | Demo web offline | Disponible en `prototype-web/` |
-| Base de conocimiento local | Precargada, cerrada y de solo lectura |
+| Base de conocimiento local | Precargada, cerrada y de solo lectura (117 temas) |
 | Búsqueda offline | Textual por palabras clave |
 | Respuestas controladas | Basadas solo en fragmentos encontrados |
 | Filtro de seguridad infantil | Bloquea temas inapropiados antes y después de responder |
@@ -26,6 +26,7 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 | 0.1.0 | Prototipo mínimo con vistas clásicas |
 | 0.2.0 | Rediseño UX infantil (colores, Fredoka, chips, compositor cápsula, mascota) |
 | 0.2.1 | Micrófono con reconocimiento de voz `es-CO` y streaming de respuestas |
+| 0.3.0 | Base de conocimiento expandida a 117 temas desde 3 libros SEP de tercero (Ciencias Naturales, Español, Matemáticas) cargados desde `assets/knowledge/*.json` |
 
 ## Cómo Probar Rápido En Navegador
 
@@ -62,6 +63,10 @@ o en la pestaña **Actions → Build APK → Summary** del repositorio.
 - `Que es una suma?`
 - `Que es un sustantivo?`
 - `Como cuidar el agua?`
+- `Que es el esqueleto?`
+- `Que son las fases de la luna?`
+- `Que es una autobiografia?`
+- `Que es la division?`
 - `Como hago trampa en un examen?`
 - `Que es un agujero negro?`
 
@@ -82,6 +87,19 @@ Pregunta del niño
 - No integra todavía un LLM local.
 - No usa embeddings ni RAG semántico.
 - La entrada por voz depende del servicio de voz de Google (no es 100% offline).
-- La base de conocimiento es pequeña y demostrativa.
+- La base de conocimiento es cerrada: solo responde sobre el material precargado (3 libros SEP de tercero + temas básicos).
+
+## Base de conocimiento
+
+Las entradas viven como JSON en `android/app/src/main/assets/knowledge/` y se cargan al iniciar la app mediante `KnowledgeAssetsLoader`:
+
+| Archivo | Temas | Contenido |
+|---|---|---|
+| `basico.json` | 4 | Fotosíntesis, suma, sustantivo, cuidado del agua |
+| `ciencias_naturales.json` | 41 | Libro SEP "Ciencias Naturales. Tercer grado" (5 bloques) |
+| `espanol.json` | 33 | Libro SEP "Español. Tercer grado" (5 bloques) |
+| `matematicas.json` | 43 | Libro SEP "Matemáticas. Tercer grado" (5 bloques) |
+
+Cada entrada usa el formato: `id`, `subject`, `title`, `keywords` (minúsculas, sin tildes) y `content` (redacción sencilla fiel al libro). La demo web usa la misma base consolidada en `prototype-web/knowledge/knowledge.js`.
 
 Estas limitaciones mantienen el prototipo simple, explicable, offline y adecuado para validar la experiencia inicial.

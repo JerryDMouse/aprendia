@@ -4,10 +4,25 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.List;
+
 import org.junit.Test;
 
 public final class KnowledgeRepositoryTest {
-    private final KnowledgeRepository repository = new KnowledgeRepository();
+    private final KnowledgeRepository repository = new KnowledgeRepository(List.of(
+            new KnowledgeEntry("ciencias-fotosintesis", "Ciencias naturales", "La fotosintesis",
+                    new String[]{"fotosintesis", "plantas", "sol", "hojas", "alimento"},
+                    "La fotosintesis es el proceso por el cual las plantas fabrican su alimento. Usan la luz del sol, agua del suelo y aire. Las hojas ayudan a realizar este proceso."),
+            new KnowledgeEntry("matematicas-suma", "Matematicas", "La suma",
+                    new String[]{"suma", "sumar", "adicion", "juntar", "total"},
+                    "La suma sirve para juntar cantidades y saber cuanto hay en total. Por ejemplo, si tienes 2 mangos y te dan 3 mas, ahora tienes 5 mangos."),
+            new KnowledgeEntry("lenguaje-sustantivo", "Lenguaje", "El sustantivo",
+                    new String[]{"sustantivo", "nombre", "persona", "animal", "cosa", "lugar"},
+                    "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas. Por ejemplo: nina, perro, escuela, rio y cuaderno."),
+            new KnowledgeEntry("ambiental-agua", "Educacion ambiental", "Cuidado del agua",
+                    new String[]{"agua", "cuidar", "rio", "quebrada", "ahorrar"},
+                    "El agua se cuida cerrando la llave cuando no se usa, no botando basura en rios o quebradas y usando solo la cantidad necesaria para las actividades diarias.")
+    ));
 
     @Test
     public void findBestEntry_returnsPhotosynthesisEntry() {

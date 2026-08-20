@@ -7,32 +7,15 @@ import java.util.List;
 import java.util.Locale;
 
 public final class KnowledgeRepository {
-    private final List<KnowledgeEntry> entries = List.of(
-            new KnowledgeEntry(
-                    "Ciencias naturales",
-                    "La fotosintesis",
-                    new String[] {"fotosintesis", "plantas", "sol", "hojas", "alimento"},
-                    "La fotosintesis es el proceso por el cual las plantas fabrican su alimento. Usan la luz del sol, agua del suelo y aire. Las hojas ayudan a realizar este proceso."
-            ),
-            new KnowledgeEntry(
-                    "Matematicas",
-                    "La suma",
-                    new String[] {"suma", "sumar", "adicion", "juntar", "total"},
-                    "La suma sirve para juntar cantidades y saber cuanto hay en total. Por ejemplo, si tienes 2 mangos y te dan 3 mas, ahora tienes 5 mangos."
-            ),
-            new KnowledgeEntry(
-                    "Lenguaje",
-                    "El sustantivo",
-                    new String[] {"sustantivo", "nombre", "persona", "animal", "cosa", "lugar"},
-                    "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas. Por ejemplo: nina, perro, escuela, rio y cuaderno."
-            ),
-            new KnowledgeEntry(
-                    "Educacion ambiental",
-                    "Cuidado del agua",
-                    new String[] {"agua", "cuidar", "rio", "quebrada", "ahorrar"},
-                    "El agua se cuida cerrando la llave cuando no se usa, no botando basura en rios o quebradas y usando solo la cantidad necesaria para las actividades diarias."
-            )
-    );
+    private final List<KnowledgeEntry> entries;
+
+    public KnowledgeRepository(List<KnowledgeEntry> entries) {
+        this.entries = List.copyOf(entries);
+    }
+
+    public int getEntryCount() {
+        return entries.size();
+    }
 
     public KnowledgeEntry findBestEntry(String question) {
         String normalizedQuestion = normalize(question);

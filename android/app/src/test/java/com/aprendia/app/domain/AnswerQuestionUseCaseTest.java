@@ -4,14 +4,21 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import com.aprendia.app.knowledge.KnowledgeEntry;
 import com.aprendia.app.knowledge.KnowledgeRepository;
 import com.aprendia.app.safety.SafetyFilter;
+
+import java.util.List;
 
 import org.junit.Test;
 
 public final class AnswerQuestionUseCaseTest {
     private final AnswerQuestionUseCase useCase =
-            new AnswerQuestionUseCase(new KnowledgeRepository(), new SafetyFilter());
+            new AnswerQuestionUseCase(new KnowledgeRepository(List.of(
+                    new KnowledgeEntry("ciencias-fotosintesis", "Ciencias naturales", "La fotosintesis",
+                            new String[]{"fotosintesis", "plantas", "sol", "hojas", "alimento"},
+                            "La fotosintesis es el proceso por el cual las plantas fabrican su alimento. Usan la luz del sol, agua del suelo y aire. Las hojas ayudan a realizar este proceso.")
+            )), new SafetyFilter());
 
     @Test
     public void answer_returnsKnowledgeForKnownTopic() {

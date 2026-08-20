@@ -1,0 +1,289 @@
+[
+  {
+    "id": "ciencias3-bloque1-tema1-esqueleto",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Esqueleto",
+    "keywords": ["esqueleto", "huesos", "cartilago", "soporte", "cuerpo humano"],
+    "content": "El esqueleto forma parte del cuerpo de los seres humanos y de algunos animales, como perros, gatos, aves y peces. Está formado por huesos, que son las estructuras más duras del cuerpo. Su dureza permite que el esqueleto dé soporte al cuerpo y proteja a órganos como el cerebro. El esqueleto del ser humano también se forma con cartílago, un tejido flexible y blando. El esqueleto de una persona adulta tiene 206 huesos."
+  },
+  {
+    "id": "ciencias3-bloque1-tema1-huesos",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Huesos",
+    "keywords": ["huesos", "dureza", "esqueleto", "soporte", "fractura"],
+    "content": "Los huesos son las estructuras más duras de nuestro cuerpo. Su dureza permite que el esqueleto sea una estructura que da soporte al cuerpo y protege a órganos como el cerebro. Muchos movimientos, como correr, caminar, saltar o agacharnos, son posibles gracias al soporte que nos dan los huesos. A medida que el niño crece, muchos cartílagos se endurecen hasta transformarse en hueso."
+  },
+  {
+    "id": "ciencias3-bloque1-tema1-articulaciones",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Articulaciones",
+    "keywords": ["articulaciones", "ligamentos", "flexionar", "uniones", "sistema oseo"],
+    "content": "Los puntos donde se unen los huesos se conocen como articulaciones. Las articulaciones nos permiten flexionar y girar algunas partes de nuestro cuerpo, como el codo, la muñeca, el hombro y la rodilla. En las articulaciones encontramos ligamentos, que son como ligas muy resistentes que sirven para unir a los huesos. Los huesos, las articulaciones, los cartílagos y los ligamentos forman el sistema óseo."
+  },
+  {
+    "id": "ciencias3-bloque1-tema1-musculos",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Musculos",
+    "keywords": ["musculos", "fibras", "contraer", "estirar", "movimiento"],
+    "content": "Los músculos son fibras que se encogen y se estiran, y que recubren casi todo el esqueleto. Cuando un músculo se encoge, se contrae, y cuando se estira, se relaja. La mayoría de los músculos están fijos a los huesos; su estiramiento y encogimiento tira de los huesos y da movimiento a las articulaciones. Para realizar un movimiento, los músculos trabajan en parejas: uno hace la función contraria del otro."
+  },
+  {
+    "id": "ciencias3-bloque1-tema1-sistema-nervioso",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Sistema nervioso",
+    "keywords": ["sistema nervioso", "cerebro", "nervios", "coordinacion", "movimientos involuntarios"],
+    "content": "El sistema nervioso coordina al sistema muscular para realizar los movimientos. Entre el cerebro y el resto del cuerpo hay una comunicación constante: cuando queremos mover una parte del cuerpo, el cerebro envía señales a los músculos a través de los nervios. También regula la percepción y las respuestas de los órganos de los sentidos. Los movimientos que hacemos porque lo decidimos se llaman voluntarios, y los que ocurren sin que lo decidamos, como los latidos del corazón, se llaman involuntarios. El conjunto de los sistemas muscular y óseo se llama aparato locomotor, y lo coordina el sistema nervioso."
+  },
+  {
+    "id": "ciencias3-bloque1-tema1-prevencion-lesiones",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Prevencion de lesiones",
+    "keywords": ["prevencion", "lesiones", "fractura", "calentamiento", "accidentes"],
+    "content": "Las lesiones en el aparato locomotor pueden ir desde una torcedura hasta una fractura, que es el rompimiento de un hueso. Para prevenirlas, antes de hacer ejercicio debes realizar calentamiento de los músculos, evitar ejercicios extenuantes por tiempos prolongados e hidratarte con agua simple potable. Usar casco y protecciones en codos y rodillas disminuye la posibilidad de una lesión grave. Una lesión en los huesos, los músculos o los nervios le resta movilidad al cuerpo."
+  },
+  {
+    "id": "ciencias3-bloque1-tema2-nutrimentos",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Nutrimentos",
+    "keywords": ["nutrimentos", "nutrientes", "alimentos", "sangre", "energia"],
+    "content": "Los alimentos no pueden ser aprovechados por el cuerpo tal como los consumimos; deben ser descompuestos en sus componentes más pequeños, llamados nutrimentos. Los nutrimentos son absorbidos por el cuerpo y todo lo que no se utiliza se desecha. Los nutrimentos pasan a la sangre, y ésta los distribuye hacia todos los órganos del cuerpo. Cuando el oxígeno se combina con los nutrimentos se obtiene la energía que el cuerpo necesita para realizar sus actividades."
+  },
+  {
+    "id": "ciencias3-bloque1-tema2-digestion",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Digestion",
+    "keywords": ["digestion", "digestivo", "estomago", "esofago", "intestino"],
+    "content": "Digerir los alimentos es transformarlos en materiales más sencillos para que puedan ser utilizados por el cuerpo. La digestión comienza en la boca, donde masticamos los alimentos; después pasan por el esófago hasta el estómago, donde los jugos gástricos los convierten en una masa. Esa masa pasa al intestino delgado, donde se absorben los nutrimentos, y lo que no se aprovecha se excreta como heces. Estas funciones las realiza el aparato digestivo."
+  },
+  {
+    "id": "ciencias3-bloque1-tema2-aparato-circulatorio",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Aparato circulatorio",
+    "keywords": ["circulatorio", "corazon", "sangre", "arterias", "venas"],
+    "content": "La sangre es el vehículo que lleva a todas las partes del cuerpo las sustancias que éste necesita para vivir y también transporta algunos desechos para que sean eliminados. Las vías por donde viaja la sangre son las venas y las arterias. El corazón es un órgano que se encuentra en la parte media del tórax y se encarga de bombear la sangre para que llegue a todo el cuerpo. El corazón, las venas y las arterias forman parte del aparato circulatorio."
+  },
+  {
+    "id": "ciencias3-bloque1-tema2-aparato-respiratorio",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Aparato respiratorio",
+    "keywords": ["respiratorio", "respirar", "oxigeno", "pulmones", "alveolos"],
+    "content": "El aparato respiratorio está compuesto por varios tubos o conductos que inician en la nariz, se conectan con la boca y continúan en la tráquea, los bronquios y bronquiolos, hasta llegar a los alveolos, que están dentro de los pulmones. Ahí se lleva a cabo el intercambio de gases: oxígeno y dióxido de carbono. Al inhalar introducimos aire con oxígeno, un gas indispensable para la vida, y al exhalar expulsamos dióxido de carbono, que es una sustancia de desecho."
+  },
+  {
+    "id": "ciencias3-bloque1-tema3-dieta",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Dieta",
+    "keywords": ["dieta", "alimentos", "nutrimentos", "nutricion", "cantidad"],
+    "content": "Se llama dieta a la variedad y cantidad de alimentos que se consumen cada día. Para que una dieta sea correcta debe contener todos los nutrimentos y en las cantidades necesarias que se indican en los grupos de alimentos del Plato del Bien Comer. Los alimentos que ingieres aportan los elementos necesarios para que el cuerpo crezca, se desarrolle y funcione adecuadamente."
+  },
+  {
+    "id": "ciencias3-bloque1-tema3-plato-del-bien-comer",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Plato del Bien Comer",
+    "keywords": ["plato del bien comer", "grupos de alimentos", "verduras", "frutas", "cereales"],
+    "content": "El Plato del Bien Comer es un esquema que ilustra los tres grupos de alimentos: verduras y frutas, cereales y tubérculos, y leguminosas y alimentos de origen animal. Establece recomendaciones sobre su consumo y sirve de guía nutrimental para los mexicanos. Recomienda que en cada comida consumas por lo menos un alimento de cada grupo. Los pastelillos, frituras y bebidas industrializadas no están en el Plato porque contienen grandes cantidades de grasas y azúcares."
+  },
+  {
+    "id": "ciencias3-bloque1-tema3-desordenes-alimentarios",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Desordenes alimentarios",
+    "keywords": ["sobrepeso", "obesidad", "desnutricion", "alimentacion", "dieta"],
+    "content": "Comer en exceso o dejar de consumir alimentos de un grupo puede provocar desórdenes alimentarios, como el sobrepeso, la obesidad o la desnutrición. El sobrepeso y la obesidad son factores contrarios a la salud. Para evitar estos trastornos se debe tener una alimentación adecuada y realizar actividad física constante, como caminar, correr o nadar."
+  },
+  {
+    "id": "ciencias3-bloque2-tema1-clasificacion-por-alimentacion",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Clasificacion de animales por su alimentacion",
+    "keywords": ["carnivoros", "herbivoros", "omnivoros", "insectivoros", "alimentacion"],
+    "content": "Los animales se clasifican por su alimentación. A los que se alimentan de la carne de otros se les llama carnívoros. Los que se alimentan de plantas, como frutos, hojas, brotes tiernos y corteza, y de hongos, se llaman herbívoros. Los que comen tanto plantas como hongos y otros animales son omnívoros, y los que consumen insectos son insectívoros."
+  },
+  {
+    "id": "ciencias3-bloque2-tema1-alimentacion-y-habitat",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Alimentacion y habitat",
+    "keywords": ["habitat", "alimentacion", "ambiente", "mono arana", "tortuga del desierto"],
+    "content": "El tipo de alimentación de un ser vivo está en función del lugar donde habita. Por ejemplo, el mono araña vive en las selvas tropicales y se alimenta de frutas, hojas tiernas, flores, semillas e insectos, recursos que encuentra en su hábitat natural. La tortuga del desierto habita en el norte de México y sólo come nopales y cactus. El lugar donde vive un animal se relaciona con lo que come."
+  },
+  {
+    "id": "ciencias3-bloque2-tema1-respiracion-animales",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Respiracion de los animales",
+    "keywords": ["respiracion", "branquias", "peces", "lombriz", "pulmones"],
+    "content": "Los seres vivos respiran de diferentes maneras. Los peces absorben el oxígeno disuelto en el agua cuando ésta pasa a través de sus branquias, unas láminas muy delgadas irrigadas de sangre. Muchos animales, como la lombriz de tierra, respiran por su piel, que debe mantenerse siempre húmeda. Las orcas y las ballenas, aunque viven en el agua, respiran con pulmones, de manera similar a los seres humanos."
+  },
+  {
+    "id": "ciencias3-bloque2-tema1-plantas-autotrofas",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Plantas autotrofas",
+    "keywords": ["plantas", "autotrofas", "luz del sol", "dioxido de carbono", "oxigeno"],
+    "content": "Las plantas elaboran su propio alimento, por eso se les llama autótrofas, porque se alimentan por sí mismas. Las plantas elaboran su alimento a partir de la luz del sol, el agua y el dióxido de carbono, un gas que se encuentra en el aire. Lo complementan con las sustancias que absorben del suelo a través de la raíz. En este proceso las plantas almacenan su alimento y liberan oxígeno, que otros seres vivos usan para respirar."
+  },
+  {
+    "id": "ciencias3-bloque2-tema1-relaciones-de-alimentacion",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Relaciones de alimentacion entre los seres vivos",
+    "keywords": ["cadena alimenticia", "seres vivos", "venado", "se comen", "diversidad"],
+    "content": "Algunos seres vivos se comen a otros: por ejemplo, el venado se alimenta de plantas y a su vez hay seres vivos que se alimentan del venado. Sin duda esos seres vivos también son alimento de otros. Si un ser vivo desapareciera, los que se alimentan de él también serían afectados. Por eso es importante conservar la diversidad de organismos que habitan la Tierra."
+  },
+  {
+    "id": "ciencias3-bloque2-tema2-recursos-naturales",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Recursos naturales",
+    "keywords": ["recursos naturales", "naturaleza", "agua", "aire", "suelo"],
+    "content": "Los recursos naturales son el conjunto de componentes de la naturaleza que son aprovechados por el ser humano en su estado natural. Ejemplos de recursos naturales son el aire, el suelo, el agua, el viento, las plantas y los animales. Muchos de los recursos que usamos diariamente provienen de la naturaleza, y al obtenerlos se modifica el ambiente natural de los otros seres vivos que también dependen de ellos."
+  },
+  {
+    "id": "ciencias3-bloque2-tema2-contaminacion",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Contaminacion",
+    "keywords": ["contaminacion", "desechos", "agua", "aire", "suelo"],
+    "content": "Los desechos que generamos contaminan el agua, el aire y el suelo cuando no se depositan en los lugares adecuados. Muchos terminan en las calles, los parques, los bosques, las barrancas y los ríos. Al obtener recursos naturales para satisfacer nuestras necesidades también se modifica el ambiente; por ejemplo, para obtener madera se talan bosques y selvas, lo que ocasiona un gran desequilibrio ambiental."
+  },
+  {
+    "id": "ciencias3-bloque2-tema3-desechos-organicos-e-inorganicos",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Desechos organicos e inorganicos",
+    "keywords": ["desechos organicos", "desechos inorganicos", "composta", "reciclaje", "separar"],
+    "content": "Los desechos que generamos diariamente se clasifican en orgánicos e inorgánicos. Los desechos orgánicos se pueden utilizar para hacer composta, que es un abono para las plantas y los cultivos. La mayor parte de los desechos inorgánicos son reciclables, por ejemplo el vidrio se puede fundir para hacer otros objetos, y lo mismo se puede hacer con algunos desechos metálicos. Es conveniente separar los desechos para que puedan tener un segundo uso."
+  },
+  {
+    "id": "ciencias3-bloque2-tema3-tres-erres",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Las tres erres",
+    "keywords": ["reducir", "reusar", "reciclar", "tres erres", "ambiente"],
+    "content": "Para cuidar el ambiente puedes poner en práctica la estrategia de las tres erres: reducir, reusar y reciclar. Reducir significa disminuir el consumo de productos y servicios, por ejemplo apagar focos cuando no los usas o no desperdiciar agua. Reusar significa volver a utilizar, como usar las hojas de papel por ambos lados. Reciclar es procesar los desechos para hacer otros productos, como fundir el vidrio para crear objetos nuevos. Así duran más los recursos naturales y nuestras actividades dañan menos al planeta."
+  },
+  {
+    "id": "ciencias3-bloque3-tema1-masa",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Masa",
+    "keywords": ["masa", "balanza", "kilogramo", "materia", "material"],
+    "content": "La cantidad de material que contienen los objetos se conoce como masa. Para determinar la masa de los objetos se utiliza la balanza. La masa de un cuerpo no depende de su forma: dos cuerpos de diferente forma pueden tener igual masa, y los cuerpos más grandes no siempre tienen más masa, ya que esto depende del tipo de material del que están hechos. La unidad más usada para medir la masa es el kilogramo (kg)."
+  },
+  {
+    "id": "ciencias3-bloque3-tema1-volumen",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Volumen",
+    "keywords": ["volumen", "espacio", "metro cubico", "ocupan", "balon"],
+    "content": "Los cuerpos también ocupan un espacio; a esto se le llama volumen. Por ejemplo, un balón de basquetbol ocupa más espacio que uno de futbol, por lo tanto tiene más volumen. La unidad de volumen es el metro cúbico (m3), pero es muy grande para medir cosas cotidianas, así que se prefiere el decímetro cúbico (dm3), que es el espacio que ocupa una caja de 10 cm de ancho, 10 cm de largo y 10 cm de alto."
+  },
+  {
+    "id": "ciencias3-bloque3-tema1-capacidad",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Capacidad",
+    "keywords": ["capacidad", "litro", "recipiente", "volumen", "medir"],
+    "content": "La capacidad es la medida de lo que le cabe a un recipiente. Se relaciona con el volumen, pero no son lo mismo: el volumen es el espacio que ocupa un cuerpo, mientras que la capacidad es lo que cabe en un recipiente. El litro es la unidad que se usa con más frecuencia para medir la capacidad. Un decímetro cúbico equivale a un litro, y un centímetro cúbico equivale a un mililitro."
+  },
+  {
+    "id": "ciencias3-bloque3-tema2-temperatura",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Temperatura",
+    "keywords": ["temperatura", "grados celsius", "calentamiento", "cuerpos", "fiebre"],
+    "content": "La temperatura es la medida en grados Celsius del calentamiento de los cuerpos. Los cuerpos presentan diferente temperatura, y lo que a una persona le parece caliente a otra no tanto, porque depende del sentido del tacto. El rango de temperatura normal del cuerpo humano varía entre 36 y 37 grados Celsius. Cuando la temperatura se eleva, hay fiebre, que es un síntoma de que no se está bien de salud."
+  },
+  {
+    "id": "ciencias3-bloque3-tema2-termometro",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Termometro",
+    "keywords": ["termometro", "mercurio", "temperatura corporal", "medir", "celsius"],
+    "content": "El termómetro es un instrumento que sirve para medir la temperatura de los cuerpos de una manera que no esté sujeta a la apreciación personal. El termómetro clínico consiste en un tubo muy fino de cristal cuyo extremo inferior tiene un depósito que contiene mercurio; sus unidades de medida se llaman grados Celsius (°C). Se usa para medir la temperatura corporal. La fiebre es un mecanismo de defensa del cuerpo para combatir una infección."
+  },
+  {
+    "id": "ciencias3-bloque3-tema3-fuerza",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Fuerza",
+    "keywords": ["fuerza", "deformar", "movimiento", "maquinas", "herramientas"],
+    "content": "Todos los días aplicas una fuerza al realizar actividades como cargar tu mochila, lanzar una pelota o empujar una caja. Al aplicar una fuerza a un cuerpo, éste puede deformarse, es decir, cambiar su forma, como cuando jalas una liga o presionas la plastilina. Si un cuerpo está en reposo y se le aplica fuerza, puede comenzar a moverse. Existen herramientas y máquinas que facilitan el trabajo haciendo que apliquemos menos fuerza, como el martillo, el exprimidor de limones, la rueda, la polea, el tornillo y el rodillo."
+  },
+  {
+    "id": "ciencias3-bloque4-tema1-luz",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Luz",
+    "keywords": ["luz", "linea recta", "trayectoria", "sol", "focos"],
+    "content": "Podemos apreciar los objetos gracias a la interacción de la luz con ellos. La luz viaja en línea recta; al camino que recorre se le llama trayectoria. La fuente principal de luz es el Sol, pero existen otras fuentes, como el fuego, los focos o bombillas eléctricas y los tubos de luz o focos de neón. Desde estas fuentes la luz se propaga iluminando todo a su paso."
+  },
+  {
+    "id": "ciencias3-bloque4-tema1-materiales-opacos",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Cuerpos opacos",
+    "keywords": ["opacos", "opaco", "sombra", "umbra", "luz"],
+    "content": "Los cuerpos opacos no dejan pasar la luz y forman una sombra definida, que se conoce como umbra, la parte más oscura de una sombra. En la umbra, la fuente de luz es completamente bloqueada por el objeto que causa la sombra. Ejemplos de materiales opacos son el cartoncillo negro y un libro. La forma y el tamaño de la sombra dependen de la posición de la fuente de luz."
+  },
+  {
+    "id": "ciencias3-bloque4-tema1-materiales-traslucidos",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Cuerpos traslucidos",
+    "keywords": ["traslucidos", "penumbra", "luz", "sombra", "sombra parcial"],
+    "content": "Los cuerpos traslúcidos dejan pasar parcialmente la luz y producen una sombra muy tenue, llamada sombra parcial o penumbra, que significa casi-sombra. En la penumbra, la fuente de luz es bloqueada parcialmente por el objeto. En casa se usan algunas veces cortinas de materiales traslúcidos para evitar que del exterior se vea el interior, pero que entre suficiente luz."
+  },
+  {
+    "id": "ciencias3-bloque4-tema1-materiales-transparentes",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Cuerpos transparentes",
+    "keywords": ["transparentes", "vidrio", "mica", "luz", "lentes"],
+    "content": "Los cuerpos transparentes dejan pasar la luz casi totalmente. Por ejemplo, la mica y el vidrio son materiales transparentes que se usan para fabricar lentes. Las propiedades de los materiales opacos, traslúcidos y transparentes nos permiten utilizarlos para un fin determinado, como impedir el paso de la luz o dejar que entre."
+  },
+  {
+    "id": "ciencias3-bloque4-tema1-eclipses",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Eclipses",
+    "keywords": ["eclipses", "eclipse solar", "eclipse lunar", "sombra", "sol"],
+    "content": "Los eclipses son consecuencia de la sombra que proyecta un astro al obstruir la luz del Sol. Un eclipse solar ocurre cuando la Luna se interpone entre el Sol y la Tierra. Un eclipse lunar ocurre cuando la Tierra se interpone entre el Sol y la Luna. Los antiguos mayas ya predecían los eclipses con precisión."
+  },
+  {
+    "id": "ciencias3-bloque4-tema2-sonido",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Sonido",
+    "keywords": ["sonido", "vibracion", "aire", "oidos", "sonidos"],
+    "content": "El sonido se produce al vibrar los objetos, como las reglas, las ligas o el popote. El sonido viaja a través del aire hasta tus oídos, pero también viaja por materiales sólidos y líquidos, por eso puedes escucharlo cuando estás bajo el agua o con teléfonos hechos con vasos unidos por un hilo. En la naturaleza existen sonidos, como los que emiten las aves, los de un río, el mar y el aire cuando pasa por los árboles. Cuando el sonido está organizado en forma de música, entretiene, alegra y relaja."
+  },
+  {
+    "id": "ciencias3-bloque4-tema2-caracteristicas-del-sonido",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Caracteristicas del sonido",
+    "keywords": ["tono", "intensidad", "timbre", "sonido", "grave"],
+    "content": "Podemos distinguir los sonidos por tres características: tono, intensidad y timbre. El tono puede ser agudo, como la voz de un niño o un silbato de cartero, o grave, como la voz de un hombre adulto. La intensidad se refiere al volumen del sonido, que puede ser alto o bajo. El timbre es el sonido particular de un objeto o persona, como el que emite un violín o una trompeta."
+  },
+  {
+    "id": "ciencias3-bloque4-tema2-contaminacion-acustica",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Contaminacion acustica",
+    "keywords": ["contaminacion acustica", "ruido", "decibel", "volumen", "oidos"],
+    "content": "Cuando el volumen del sonido rebasa un valor determinado se convierte en un contaminante acústico. El exceso de ruido puede afectar tus oídos y tu sistema nervioso. La unidad utilizada para medir la intensidad del sonido es el decibel. La exposición a ruidos superiores a 85 o 90 decibeles al día durante varios días provoca daños irreversibles en la salud."
+  },
+  {
+    "id": "ciencias3-bloque4-tema3-imanes",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Imanes",
+    "keywords": ["imanes", "magnetismo", "magnetita", "polos", "hierro"],
+    "content": "Los imanes son objetos que tienen la propiedad de atraer metales como el hierro, el níquel y el cobalto. A esta propiedad se le conoce como magnetismo. Existen imanes naturales, como la magnetita, un mineral que atrae pedazos de hierro sin tocarlos, e imanes artificiales, que adquieren esa capacidad al ser frotados con ellos. La mayor capacidad de atracción de un imán se concentra en sus extremos, llamados polos (polo norte y polo sur): cuando se acercan dos imanes por el mismo polo se rechazan, pero si los polos son diferentes se atraen."
+  },
+  {
+    "id": "ciencias3-bloque4-tema3-usos-de-los-imanes",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Usos de los imanes",
+    "keywords": ["brujula", "imanes", "refrigerador", "magnetismo", "bocinas"],
+    "content": "El ser humano aprovecha el magnetismo en diferentes maneras. La puerta de los refrigeradores tiene un imán en su interior, por eso cuando está casi cerrada sientes la atracción. Algunos bolsos y estuches usan imanes para cerrarse, y hay potentes imanes que levantan grandes pesos de objetos metálicos, como la chatarra de hierro. La brújula es un instrumento muy antiguo que consiste en una aguja imantada que siempre termina señalando hacia el polo norte terrestre. Las bocinas también tienen un imán en su interior que hace vibrar una membrana para producir sonido."
+  },
+  {
+    "id": "ciencias3-bloque5-tema1-luna",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "La Luna",
+    "keywords": ["luna", "satelite", "satelite natural", "luz del sol", "tierra"],
+    "content": "La Luna es el astro o cuerpo celeste más cercano a nuestro planeta y es su único satélite natural; es un cuerpo que se desplaza alrededor de la Tierra. Los satélites son cuerpos opacos que giran alrededor de un planeta; los hay de origen natural y artificial, y estos últimos son construidos y puestos en órbita por los seres humanos. La Luna refleja la luz que recibe del Sol, por eso podemos verla en las noches despejadas. Sin embargo, no siempre se ve igual: algunas veces vemos su imagen completa y otras veces incompleta."
+  },
+  {
+    "id": "ciencias3-bloque5-tema1-fases-de-la-luna",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Fases de la Luna",
+    "keywords": ["fases de la luna", "luna nueva", "luna llena", "cuarto creciente", "cuarto menguante"],
+    "content": "En el transcurso de cada mes la imagen de la Luna presenta variaciones; a estos cambios se les llama fases de la Luna y están determinados por la cantidad de luz del Sol que la Luna refleja hacia la Tierra según su posición. Cuando la Luna se encuentra entre la Tierra y el Sol no podemos verla: es la Luna nueva. Después se observa una zona pequeña iluminada que cada día es mayor: el cuarto creciente, y luego la Luna se ve totalmente iluminada: es la Luna llena. Finalmente, la cara iluminada deja de verse poco a poco en el cuarto menguante. Las fases de la Luna son cíclicas y consecutivas, es decir, se producen siempre en el mismo orden."
+  },
+  {
+    "id": "ciencias3-bloque5-tema1-movimientos-de-la-luna",
+    "subject": "Ciencias naturales (tercero)",
+    "title": "Movimientos de la Luna",
+    "keywords": ["rotacion", "traslacion", "lunacion", "luna", "movimientos"],
+    "content": "La Luna ejecuta dos movimientos: la rotación, que hace sobre su propio eje y dura aproximadamente 29 días, y la traslación, que realiza alrededor de la Tierra y también tarda 29 días. Como la Luna tarda lo mismo en dar una vuelta sobre su eje que en dar una vuelta alrededor de la Tierra, siempre nos presenta la misma cara. La Luna tarda exactamente 29 días y 12 horas en dar una vuelta completa a la Tierra; a este tiempo se le conoce como lunación. Algunas culturas antiguas, como la maya, usaron las fases de la Luna para medir el tiempo y calcular el mejor momento para realizar actividades como la siembra."
+  }
+]

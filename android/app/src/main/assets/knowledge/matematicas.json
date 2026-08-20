@@ -1,0 +1,303 @@
+[
+  {
+    "id": "matematicas3-bloque1-leccion1-sistema-de-numeracion-decimal",
+    "subject": "Matematicas (tercero)",
+    "title": "Sistema de numeración decimal",
+    "keywords": ["numeros", "unidades", "decenas", "centenas", "millares"],
+    "content": "El sistema de numeración decimal agrupa los elementos de 10 en 10. 10 unidades forman una decena, 10 decenas forman una centena y 10 centenas forman una unidad de millar, que también se llama millar. Un millar es igual a 1 000 unidades. Por ejemplo, 807 paletas se pueden agrupar en 8 cajas, 0 bolsas y 7 paletas sueltas."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion3-cuadro-numerico",
+    "subject": "Matematicas (tercero)",
+    "title": "Cuadro numérico y sucesiones",
+    "keywords": ["sucesion", "cuadro numerico", "patron", "contar"],
+    "content": "Una sucesión numérica se obtiene al sumarle una cantidad constante a un número. Por ejemplo, 3, 6, 9, 12, 15 se forma sumando 3 a cada número anterior. En el cuadro numérico se puede contar de 10 en 10, de 5 en 5 o de 100 en 100 para descubrir los patrones de los números."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion4-restas-con-calculo-mental",
+    "subject": "Matematicas (tercero)",
+    "title": "Restas con cálculo mental",
+    "keywords": ["resta", "calculo mental", "descomposicion", "suma"],
+    "content": "Restar es saber cuánto falta para llegar a un número, y se puede comprobar con una suma: si 9 + 2 = 11, entonces 11 - 2 = 9. Para restar con la mente puedes descomponer el número grande en 10 más otro número. Por ejemplo, 15 - 8 se resuelve así: 10 - 8 = 2 y luego 2 + 5 = 7."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion5-multiplicacion-como-suma-repetida",
+    "subject": "Matematicas (tercero)",
+    "title": "La multiplicación como suma repetida",
+    "keywords": ["multiplicacion", "suma repetida", "filas", "columnas"],
+    "content": "La multiplicación sirve para sumar varias veces la misma cantidad, como cuando hay filas con la misma cantidad de objetos. Si hay 10 filas con 5 objetos cada una, son 10 veces 5, que es igual a 50. Cambiar el orden de los números no cambia el resultado: 8 x 5 y 5 x 8 dan el mismo total."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion6-cuerpos-geometricos-y-sus-elementos",
+    "subject": "Matematicas (tercero)",
+    "title": "Cuerpos geométricos y sus elementos",
+    "keywords": ["cuerpos geometricos", "caras", "aristas", "vertices", "cubo"],
+    "content": "Los cuerpos geométricos tienen partes llamadas caras, aristas y vértices. Las caras son las figuras que forman sus paredes, las aristas son los segmentos que se forman al unir dos caras y los vértices son los puntos donde se cruzan las líneas. El cubo, el prisma, la pirámide y el cilindro son cuerpos geométricos."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion7-prismas-piramides-cuerpos-redondos",
+    "subject": "Matematicas (tercero)",
+    "title": "Prismas, pirámides y cuerpos redondos",
+    "keywords": ["prismas", "piramides", "esfera", "cilindro", "cono", "cuspide"],
+    "content": "Los prismas tienen dos bases de la misma forma y del mismo tamaño, unidas por rectángulos o cuadrados. Las pirámides tienen una base y terminan en punta, que se llama cúspide o vértice. La esfera se parece a una pelota, el cilindro a una lata y el cono a un cono de helado."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion9-localidad-y-recorridos",
+    "subject": "Matematicas (tercero)",
+    "title": "Mi localidad y mis recorridos",
+    "keywords": ["localidad", "recorrido", "calles", "puntos de referencia"],
+    "content": "Para describir un recorrido en tu localidad se usan lugares que sirven de referencia, como el zócalo, la catedral o el mercado. Por ejemplo, Karla inició en el zócalo, después fue a la catedral, visitó el museo y por último fue a comer al mercado. Un recorrido se puede hacer de varias maneras y unas rutas son más cortas que otras."
+  },
+  {
+    "id": "matematicas3-bloque1-leccion10-el-tiempo-y-la-hora",
+    "subject": "Matematicas (tercero)",
+    "title": "El tiempo y la hora",
+    "keywords": ["tiempo", "hora", "reloj", "minutos", "horario", "minutero"],
+    "content": "El reloj tiene una manecilla pequeña llamada horario, que marca las horas, y una manecilla grande llamada minutero, que marca los minutos; en algunos relojes el segundero gira más rápido. Un día tiene 24 horas, una hora tiene 60 minutos y un minuto tiene 60 segundos. Las horas antes del mediodía se escriben con a.m. y las de después con p.m.: 6 a.m. son las 6 de la mañana y 6 p.m. las 6 de la tarde. Con el reloj también se puede calcular a qué hora termina una actividad, por ejemplo si metes galletas al horno a las 9:10 y tardan 25 minutos, las sacas a las 9:35."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion14-descomposicion-de-numeros",
+    "subject": "Matematicas (tercero)",
+    "title": "Descomposición de números",
+    "keywords": ["descomposicion", "comparar", "mayor que", "menor que"],
+    "content": "Un número se puede descomponer en sumas, por ejemplo 292 es igual a 200 + 90 + 2. Para comparar cantidades se usan los signos > (mayor que), < (menor que) e = (igual a). Por ejemplo, 230 árboles < 280 árboles se lee '230 es menor que 280'. Las descomposiciones ayudan a saber cuál número es mayor."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion15-leer-y-escribir-numeros",
+    "subject": "Matematicas (tercero)",
+    "title": "Leer y escribir números",
+    "keywords": ["leer numeros", "escribir numeros", "cifras", "nombres"],
+    "content": "Para nombrar un número es importante observar cuántas cifras tiene. Si tiene cuatro cifras, la primera a la izquierda corresponde a los millares; si tiene tres, la primera corresponde a las centenas. Por ejemplo, 'tres mil' tiene cuatro cifras. Al escuchar el nombre también se puede saber la descomposición: doscientos noventa y dos es 200 + 90 + 2."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion16-capacidad-y-fracciones-de-litro",
+    "subject": "Matematicas (tercero)",
+    "title": "La capacidad y el litro",
+    "keywords": ["capacidad", "litro", "medios", "cuartos", "fracciones"],
+    "content": "La capacidad es la cantidad de líquido que cabe en un recipiente y se mide en litros. Un litro se puede dividir en medios litros (1/2), cuartos de litro (1/4) y octavos de litro (1/8). Por ejemplo, con dos recipientes de medio litro se llena un litro, y con cuatro de un cuarto de litro también se llena un litro."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion17-el-doble-y-el-triple",
+    "subject": "Matematicas (tercero)",
+    "title": "El doble y el triple",
+    "keywords": ["doble", "triple", "multiplicacion"],
+    "content": "El doble de un número es sumarlo dos veces o multiplicarlo por 2, y el triple es sumarlo tres veces o multiplicarlo por 3. Por ejemplo, el doble de 5 naranjas son 10 naranjas y el triple son 15. Si Carmen llevó 10 flores y al día siguiente llevó el doble, llevó 20 flores."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion18-multiplicar-por-10-y-100",
+    "subject": "Matematicas (tercero)",
+    "title": "Multiplicar por 10, 20, 100 y 200",
+    "keywords": ["multiplicar", "multiples", "por 10", "por 100"],
+    "content": "Para multiplicar por un múltiplo de 10 se multiplica por el número que no es cero y se agregan los ceros que falten: un cero si se multiplica por un múltiplo de 10 y dos ceros si se multiplica por un múltiplo de 100. Por ejemplo, 31 x 200: primero 31 x 2 = 62 y como 200 tiene dos ceros, el resultado es 6 200. Así también 8 x 30 = 240 y 6 x 100 = 600."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion19-figura-o-cuerpo-geometrico",
+    "subject": "Matematicas (tercero)",
+    "title": "Figura o cuerpo geométrico",
+    "keywords": ["figuras planas", "triangulo", "cuadrado", "rectangulo", "circulo"],
+    "content": "Las figuras geométricas tienen dos dimensiones: largo y ancho; son planas, como el triángulo, el cuadrado, el rectángulo, el círculo, el pentágono, el rombo y el trapecio. Los cuerpos geométricos tienen tres dimensiones: largo, ancho y alto. Por eso una cara de una caja es una figura plana, pero la caja es un cuerpo geométrico."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion20-el-croquis",
+    "subject": "Matematicas (tercero)",
+    "title": "El croquis",
+    "keywords": ["croquis", "derecha", "izquierda", "adelante", "atras"],
+    "content": "Un croquis es un dibujo sencillo que muestra dónde están los lugares y cómo llegar a ellos. Para describir un recorrido se usan palabras como derecha, izquierda, adelante y atrás. Por ejemplo: 'camina cinco pasos al frente, dos a la derecha, tres atrás y uno a la izquierda'. Las indicaciones precisas ayudan a llegar al lugar sin equivocarse."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion21-puntos-cardinales",
+    "subject": "Matematicas (tercero)",
+    "title": "Los puntos cardinales",
+    "keywords": ["puntos cardinales", "norte", "sur", "este", "oeste", "brujula"],
+    "content": "Los puntos cardinales son norte, sur, este y oeste, y sirven para ubicarse. Hacia donde sale el Sol está el este u oriente; tu brazo izquierdo apunta al oeste o poniente, tu cara mira al norte y tu espalda queda al sur. La brújula es un instrumento cuya aguja siempre apunta al norte."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion22-longitud",
+    "subject": "Matematicas (tercero)",
+    "title": "La longitud",
+    "keywords": ["longitud", "medir", "centimetros", "metro", "estimar"],
+    "content": "La longitud es la medida de la distancia que hay de un punto a otro. Se puede medir con una regla o un metro, en centímetros y metros. Primero se puede estimar cuánto mide un objeto y después comprobar la medida exacta con la regla; por ejemplo, se puede estimar y luego medir el largo de un lápiz."
+  },
+  {
+    "id": "matematicas3-bloque2-leccion25-tablas-de-datos",
+    "subject": "Matematicas (tercero)",
+    "title": "Tablas de datos",
+    "keywords": ["tablas", "datos", "informacion", "organizar"],
+    "content": "Una tabla sirve para organizar datos y poder compararlos con facilidad. Por ejemplo, en una tabla se puede registrar cuántos leones, tigres, panteras y jaguares hay en un zoológico. Al leer la tabla se puede contestar cuál especie es la más abundante, cuántos machos hay o cuánto cuesta en total una compra."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion26-fracciones-numerador-y-denominador",
+    "subject": "Matematicas (tercero)",
+    "title": "Las fracciones: numerador y denominador",
+    "keywords": ["fracciones", "numerador", "denominador", "mitad", "cuartos", "octavos"],
+    "content": "Una fracción representa las partes que se toman de un todo, como un pastel o una hoja. El número de arriba se llama numerador y dice cuántas partes se toman; el de abajo se llama denominador y da nombre a las partes en que se dividió el todo. Por ejemplo, 3/4 de hoja significa que la hoja se dividió en 4 partes iguales y se tomaron 3. La mitad de la mitad de un todo es una cuarta parte, y para calcular la mitad de una fracción se multiplica el denominador por 2: la mitad de 3/4 es 3/8."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion27-estimar-sumas-y-restas",
+    "subject": "Matematicas (tercero)",
+    "title": "Estimar sumas y restas",
+    "keywords": ["estimar", "redondear", "suma", "resta", "aproximado"],
+    "content": "Estimar es calcular un resultado aproximado sin hacer la operación exacta. Para estimar una suma o una resta se redondean las cantidades y luego se operan. Por ejemplo, 2 985 + 3 172 + 1 041 redondeado a millares es 3 000 + 3 000 + 1 000 = 7 000, y el resultado exacto de la suma es 7 198. Para resolver, a veces conviene el cálculo mental y a veces la calculadora o el cálculo escrito."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion29-multiplicacion-por-un-digito",
+    "subject": "Matematicas (tercero)",
+    "title": "Multiplicar por un dígito",
+    "keywords": ["multiplicacion", "algoritmo", "celosia", "tres cifras"],
+    "content": "Para multiplicar un número de tres cifras por un dígito se multiplica primero las unidades, luego las decenas y después las centenas, y al final se suman los resultados. También existe el método de la celosía, que usa una cuadrícula con diagonales. Por ejemplo, 218 x 7 = 1 526 y 853 x 4 = 3 412."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion30-reparto-en-partes-iguales",
+    "subject": "Matematicas (tercero)",
+    "title": "Repartir en partes iguales",
+    "keywords": ["reparto", "division", "igual", "bolsas"],
+    "content": "Repartir significa dar la misma cantidad a cada persona o bolsa. Por ejemplo, si Adriana tiene 32 duraznos y los coloca en 4 bolsas con la misma cantidad, en cada bolsa van 8 duraznos. Estos problemas de reparto se resuelven con la división."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion31-ejes-de-simetria",
+    "subject": "Matematicas (tercero)",
+    "title": "El eje de simetría",
+    "keywords": ["simetria", "eje de simetria", "figuras", "doblez"],
+    "content": "El eje de simetría es una línea recta que divide a una figura en dos partes de la misma forma y tamaño. Si al doblar una figura por la mitad los bordes coinciden de manera exacta, la figura es simétrica respecto a ese doblez o eje. Una figura geométrica es simétrica si tiene al menos un eje de simetría."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion32-cuadriculas-y-figuras",
+    "subject": "Matematicas (tercero)",
+    "title": "Cuadrículas y figuras",
+    "keywords": ["cuadricula", "reproducir", "figuras", "referencia"],
+    "content": "La cuadrícula sirve como sistema de referencia para reproducir figuras. En la cuadrícula se colocan marcas para distinguir las filas de las columnas, y con esas indicaciones se puede dibujar una figura igual a otra. Por ejemplo, para reproducir una figura se indica qué cuadros se pintan, como B2, C3 y D4."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion33-superficie-y-area",
+    "subject": "Matematicas (tercero)",
+    "title": "La superficie y el área",
+    "keywords": ["superficie", "area", "medir", "unidades"],
+    "content": "La medida de una superficie se llama área. Para medir una superficie se puede usar una unidad pequeña, como un cuadrado o un clip, y contar cuántas veces cabe en ella. Por ejemplo, si una hoja se cubre completamente con 8 cuadrados sin encimarlos, su superficie mide aproximadamente 8 unidades cuadradas."
+  },
+  {
+    "id": "matematicas3-bloque3-leccion34-organizar-informacion",
+    "subject": "Matematicas (tercero)",
+    "title": "Organizar información",
+    "keywords": ["organizar", "informacion", "tablas", "datos"],
+    "content": "Para responder preguntas es útil organizar la información en tablas. Una tabla puede mostrar qué equipo realiza cada actividad en cada semana, marcando con una paloma lo que sí se hizo y con una tache lo que no. Con la tabla organizada se puede saber qué equipo hizo más actividades, cuál no participó o qué actividad casi no se llevó a cabo."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion35-fracciones-equivalentes",
+    "subject": "Matematicas (tercero)",
+    "title": "Fracciones equivalentes",
+    "keywords": ["fracciones", "equivalentes", "comparar"],
+    "content": "Las fracciones que representan la misma cantidad reciben el nombre de fracciones equivalentes. Por ejemplo, 1/2 es igual a 2/4, porque la mitad de un todo es lo mismo que dos cuartos. Para comparar fracciones conviene buscar fracciones equivalentes y observar cuál representa una cantidad mayor, como saber si 3/4 es mayor o menor que 1/2."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion37-multiplicar-hasta-centenas",
+    "subject": "Matematicas (tercero)",
+    "title": "Multiplicar hasta centenas",
+    "keywords": ["multiplicacion", "dobles", "calcular"],
+    "content": "Para multiplicar números más grandes se puede usar una tabla de dobles. Si una diadema cuesta 28 pesos, 2 cuestan 56, 4 cuestan 112, 8 cuestan 224 y 16 cuestan 448; así, para saber cuánto cuestan 24 diademas se suma el precio de 16 más el de 8. También se puede separar un rectángulo en secciones, multiplicar cada parte y sumar los resultados."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion38-la-division",
+    "subject": "Matematicas (tercero)",
+    "title": "La división",
+    "keywords": ["division", "cociente", "dividendo", "divisor"],
+    "content": "La operación con la que se resuelven los problemas de reparto se llama división. La división permite calcular cuántas veces se encuentra contenida una cantidad en otra y se representa con el símbolo ÷. Por ejemplo, 12 ÷ 4 = 3, porque el 4 cabe 3 veces en el 12. Puedes comprobar el resultado multiplicando 3 x 4, que da como resultado 12."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion39-giros-y-angulos",
+    "subject": "Matematicas (tercero)",
+    "title": "Giros y ángulos",
+    "keywords": ["angulos", "giros", "recto", "agudo", "obtuso", "llano"],
+    "content": "Un ángulo es la abertura formada por dos semirrectas, también llamadas lados, que parten de un origen común llamado vértice. Los ángulos se pueden comparar con los giros: un cuarto de giro forma un ángulo recto, menos de un cuarto de giro forma un ángulo agudo, más de un cuarto forma un ángulo obtuso y dos cuartos de giro forman un ángulo llano. Los cambios de dirección al caminar sobre una figura representan los ángulos de sus lados."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion40-ubicacion-en-el-espacio",
+    "subject": "Matematicas (tercero)",
+    "title": "¿En dónde se encuentra?",
+    "keywords": ["ubicacion", "espacio", "referencia", "norte", "este"],
+    "content": "Para ubicar un objeto se usa un punto de referencia y se indica si está arriba, abajo, a la derecha o a la izquierda. También se puede usar un mapa con los puntos cardinales. Por ejemplo, 'el hospital está a tres cuadras al norte y una al este del zócalo' o 'la escuela está a dos cuadras al sur y una al oeste'."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion41-mido-ingredientes",
+    "subject": "Matematicas (tercero)",
+    "title": "Mido ingredientes: litro y kilogramo",
+    "keywords": ["litro", "mililitro", "gramo", "kilogramo", "tonelada", "medir"],
+    "content": "Para medir líquidos se usan el litro (L) y el mililitro (mL): un litro son 1 000 mililitros, medio litro son 500 mililitros y un cuarto de litro son 250 mililitros. Para medir el peso se usan el gramo, el kilogramo y la tonelada: un kilogramo son 1 000 gramos y una tonelada son 1 000 kilogramos. Con la báscula y las tazas medidoras se miden los ingredientes de una receta."
+  },
+  {
+    "id": "matematicas3-bloque4-leccion42-la-tabla-de-pitagoras",
+    "subject": "Matematicas (tercero)",
+    "title": "La tabla de Pitágoras",
+    "keywords": ["tabla de pitagoras", "multiplicacion", "resultados"],
+    "content": "La tabla de Pitágoras es un cuadro en el que se anotan los resultados de las multiplicaciones de los números del 0 al 10. Se llama así porque fue creada por el filósofo griego Pitágoras de Samos, que vivió hace aproximadamente 2 500 años. En la tabla se puede buscar el resultado de una multiplicación, por ejemplo 9 x 8 = 72, y observar que hay números repetidos porque varias multiplicaciones dan el mismo resultado."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion43-la-huerta-en-fracciones",
+    "subject": "Matematicas (tercero)",
+    "title": "La huerta en fracciones",
+    "keywords": ["fracciones", "representar", "rectangulo", "partes"],
+    "content": "Una fracción se puede representar dibujando un rectángulo o una figura y dividiéndola en partes iguales. Por ejemplo, si en la huerta se sembró maíz en 1/2 del área, chile en 1/4 y frijol en 1/8, se dibuja la huerta dividida en esas partes. Al ordenar las fracciones se puede saber qué producto ocupa la mayor extensión y qué parte del terreno quedó sin sembrar."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion44-partes-de-la-division",
+    "subject": "Matematicas (tercero)",
+    "title": "Partir y compartir",
+    "keywords": ["division", "dividendo", "divisor", "cociente", "residuo"],
+    "content": "En una división, el dividendo es la cantidad que se reparte, el divisor es entre cuántas partes se reparte, el cociente es lo que le toca a cada parte y el residuo es lo que ya no se puede repartir. Por ejemplo, si la maestra reparte 37 frutas entre 5 niños, a cada uno le tocan 7 y sobran 2. Cuando se divide una cantidad, entre mayor sea el divisor, menor será el cociente."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion45-estimar-cocientes",
+    "subject": "Matematicas (tercero)",
+    "title": "Cerca de 10, 100 o 1 000",
+    "keywords": ["division", "estimar", "cociente", "por 10", "por 100"],
+    "content": "Para estimar el resultado de una división se multiplica el divisor por 1, por 10 y por 100 y se compara con el dividendo. Por ejemplo, para saber cuánto es 980 ÷ 35: 35 x 10 = 350 y 35 x 100 = 3 500; como 980 está entre 350 y 3 500, el cociente está entre 10 y 100. Así se puede saber si el resultado está cerca de 10, de 100 o de 1 000."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion46-sumar-y-restar-fracciones",
+    "subject": "Matematicas (tercero)",
+    "title": "Sumar las partes de un todo",
+    "keywords": ["fracciones", "sumar", "restar", "denominador comun"],
+    "content": "Para sumar o restar fracciones de distinto denominador se busca una fracción equivalente que permita operar con un denominador común. Por ejemplo, al sumar 1/4 + 1/2, como 1/2 es igual a 2/4, la suma queda 1/4 + 2/4 = 3/4. Si Laura tiene 5/8 de metro de estambre y le regala 2/8, le quedan 3/8."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion47-dividir-con-la-multiplicacion",
+    "subject": "Matematicas (tercero)",
+    "title": "¿Cuántas veces?",
+    "keywords": ["division", "multiplicacion", "cociente"],
+    "content": "Para resolver una división a veces se hace primero una multiplicación, porque se busca un número que multiplicado por el divisor dé el dividendo. Por ejemplo, 36 ÷ 4 = 9, porque 4 x 9 = 36. La pregunta '¿cuántas veces cabe 5 en 28?' también se responde buscando el número que multiplicado por 5 se aproxime lo más posible al 28 sin pasarse."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion48-segmentos-congruentes",
+    "subject": "Matematicas (tercero)",
+    "title": "La técnica de los griegos",
+    "keywords": ["segmentos", "recta", "congruentes", "longitud"],
+    "content": "Un segmento de recta es un trozo de línea recta que tiene una longitud. Cuando dos segmentos de recta tienen la misma longitud se dice que son congruentes entre sí. Con una cuerda, un compás o una hoja se puede copiar un segmento para trazar otro de la misma medida, como hacían los griegos."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion49-el-mar-en-cuadricula",
+    "subject": "Matematicas (tercero)",
+    "title": "El mar en cuadrícula",
+    "keywords": ["cuadricula", "ubicar", "tablero", "referencia"],
+    "content": "La cuadrícula con letras y números sirve para ubicar objetos y lugares. En el juego 'En el fondo del mar', cada casilla tiene un nombre con una letra y un número, como A3 o F7. Con esas indicaciones se puede decir exactamente dónde está cada objeto, como el pez o la tortuga, y encontrar su posición en el tablero."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion50-estimar-y-comparar-unidades",
+    "subject": "Matematicas (tercero)",
+    "title": "Estimo y comparo unidades",
+    "keywords": ["unidades", "medir", "comparar", "estimar"],
+    "content": "Una misma longitud o área se puede medir con unidades de diferente tamaño. Si la unidad es más pequeña, se necesitan más unidades; si es más grande, se necesitan menos. Por ejemplo, una vara de 50 cm se cubre con 10 gusanos de 5 cm, pero solo con 5 gusanos de 10 cm, porque la unidad de 10 cm es el doble de la de 5 cm."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion51-juegos-de-azar",
+    "subject": "Matematicas (tercero)",
+    "title": "Registra al ganador",
+    "keywords": ["azar", "juegos", "registrar", "estimacion"],
+    "content": "Cuando interviene el azar no es posible determinar con exactitud un resultado; lo que se puede hacer es una estimación. En un juego de tablero con un dado se registran las tiradas para saber cuántas veces salió cada número y cuál se repitió más. Al registrar los resultados se pueden comparar y decidir quién ganó o quién quedó más cerca de la meta."
+  },
+  {
+    "id": "matematicas3-bloque5-leccion52-probabilidad-con-dados",
+    "subject": "Matematicas (tercero)",
+    "title": "Lanza un dado",
+    "keywords": ["probabilidad", "dado", "azar", "frecuencia"],
+    "content": "En un juego con un dado no se puede saber con seguridad qué número va a salir. Si se lanzara miles de veces, la cantidad de veces que sale cada número del 1 al 6 sería casi la misma. Al comparar cajas con bolas rojas y verdes, es más fácil sacar una bola roja cuando hay más bolas rojas que de otro color; eso significa que es más probable obtenerla."
+  }
+]

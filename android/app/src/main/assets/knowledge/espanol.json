@@ -1,0 +1,233 @@
+[
+  {
+    "id": "espanol3-bloque1-biblioteca-biblioteca",
+    "subject": "Espanol (tercero)",
+    "title": "La biblioteca y su organización",
+    "keywords": ["biblioteca", "libros", "coleccion", "clasificar", "prestamo"],
+    "content": "Una biblioteca es una colección de libros ordenados y clasificados para que se puedan localizar con facilidad. En las bibliotecas también hay videotecas, que son colecciones de videos, y discotecas, que son compilaciones de discos. Las colecciones se distinguen porque los objetos están ordenados a partir de las características que comparten. El préstamo a domicilio es un permiso para llevar un libro a casa; se llena una ficha de préstamo y la persona es responsable de cuidar el material y regresarlo en el tiempo acordado."
+  },
+  {
+    "id": "espanol3-bloque1-biblioteca-tipos-de-texto",
+    "subject": "Espanol (tercero)",
+    "title": "Tipos de textos",
+    "keywords": ["textos", "literarios", "informativos", "instructivos", "periodisticos"],
+    "content": "Los libros contienen diferentes tipos de textos y por eso pueden clasificarse. Los cuentos, novelas, obras de teatro y poemas son textos literarios, porque narran sucesos fantásticos o reales con un lenguaje creativo y original. Los relatos históricos, las biografías y las enciclopedias son textos informativos, porque dan información de la sociedad y de la naturaleza. También existen textos instructivos, humorísticos, publicitarios y periodísticos."
+  },
+  {
+    "id": "espanol3-bloque1-biblioteca-reglamento",
+    "subject": "Espanol (tercero)",
+    "title": "El reglamento",
+    "keywords": ["reglamento", "reglas", "normas", "infinitivo", "verbos"],
+    "content": "Un reglamento es un documento que contiene las normas o reglas que deben seguirse, por ejemplo, en una biblioteca. Las reglas son cortas, claras y precisas, y suelen estar numeradas para que todos las cumplan. En los reglamentos los verbos se escriben en infinitivo, es decir, con terminación ar, er o ir, porque no indican quién realiza la acción ni en qué tiempo sucede."
+  },
+  {
+    "id": "espanol3-bloque1-chistes-chiste",
+    "subject": "Espanol (tercero)",
+    "title": "Qué es un chiste",
+    "keywords": ["chiste", "ambiguedad", "juegos de palabras", "gracia", "humor"],
+    "content": "Un chiste es un texto breve que causa gracia gracias a los juegos de palabras. Uno de esos juegos es la ambigüedad, cuando una palabra tiene dos significados, como la palabra marca en el chiste del reloj de bolsillo. Para entender un chiste hay que comprender completamente el significado de las palabras que se usan en él. Al contarlo también se usan la mímica y el tono de voz para hacerlo más gracioso."
+  },
+  {
+    "id": "espanol3-bloque1-chistes-discurso-directo-indirecto",
+    "subject": "Espanol (tercero)",
+    "title": "Discurso directo e indirecto",
+    "keywords": ["discurso directo", "discurso indirecto", "guiones", "dialogo", "narrador"],
+    "content": "Cuando alguien escribe un chiste reproduciendo exactamente lo que dice cada personaje, se usa el discurso directo y se colocan guiones largos delante de cada diálogo. En cambio, cuando un narrador cuenta lo que alguien dijo sin repetir palabra por palabra, se usa el discurso indirecto. Los guiones largos indican que cada personaje dice exactamente lo que está escrito."
+  },
+  {
+    "id": "espanol3-bloque1-chistes-signos-admiracion-interrogacion",
+    "subject": "Espanol (tercero)",
+    "title": "Signos de admiración e interrogación",
+    "keywords": ["admiracion", "interrogacion", "signos", "preguntas", "exclamacion"],
+    "content": "Los signos de admiración (¡!) se escriben al inicio y al final de las oraciones para expresar asombro, alegría, enojo, queja o lástima, y para llamar la atención o enfatizar algo. Los signos de interrogación (¿?) se usan para hacer preguntas. Ambos signos dan énfasis al tono de pregunta, duda, sorpresa o asombro de lo que se lee."
+  },
+  {
+    "id": "espanol3-bloque1-directorio-directorio-orden-alfabetico",
+    "subject": "Espanol (tercero)",
+    "title": "El directorio y el orden alfabético",
+    "keywords": ["directorio", "abecedario", "orden alfabetico", "telefonos", "datos"],
+    "content": "Un directorio es un libro donde se anotan datos como nombres, direcciones y teléfonos para localizar a las personas con rapidez. Los datos se ordenan alfabéticamente, es decir, siguiendo el orden del abecedario. Los directorios telefónicos tienen sección blanca, con los datos de las personas que viven en una ciudad, y sección amarilla, con los de los comercios."
+  },
+  {
+    "id": "espanol3-bloque1-directorio-mayusculas",
+    "subject": "Espanol (tercero)",
+    "title": "Uso de mayúsculas",
+    "keywords": ["mayusculas", "nombres propios", "oracion", "escritura", "mayuscula"],
+    "content": "La mayúscula se usa al inicio de una oración y después de un punto. También se escribe con mayúscula la primera letra de los nombres propios, como los nombres de las personas, de las calles, de las ciudades y de los países. En un directorio, cada nombre se anota en la página de la letra inicial que le corresponde."
+  },
+  {
+    "id": "espanol3-bloque2-folleto-folleto",
+    "subject": "Espanol (tercero)",
+    "title": "El folleto",
+    "keywords": ["folleto", "salud", "prevencion", "titulos", "ilustraciones"],
+    "content": "Un folleto es un texto breve que sirve para prevenir enfermedades o accidentes y cuidar la salud. Tiene títulos y subtítulos, información clara y precisa, e ilustraciones, dibujos o gráficas que ayudan a comprender mejor el mensaje. El texto se redacta de una manera sencilla y se indica a quién está dirigido."
+  },
+  {
+    "id": "espanol3-bloque2-folleto-diccionario-glosario",
+    "subject": "Espanol (tercero)",
+    "title": "Diccionarios y glosarios",
+    "keywords": ["diccionario", "glosario", "tecnicismos", "significado", "palabras"],
+    "content": "Para saber el significado de una palabra se pueden usar diccionarios y glosarios. Los glosarios explican el uso específico que una palabra tiene dentro de un texto. En las revistas científicas hay tecnicismos, que son palabras propias de una ciencia y que casi no se usan en la vida diaria; su significado se busca en el diccionario y se anota en el diccionario personal."
+  },
+  {
+    "id": "espanol3-bloque2-poesia-poema",
+    "subject": "Espanol (tercero)",
+    "title": "El poema: verso, estrofa y rima",
+    "keywords": ["poema", "verso", "estrofa", "rima", "poeta"],
+    "content": "Los poemas son textos literarios que se escriben en verso. Cada verso es un conjunto de palabras que tienen cierto ritmo y rima, y un conjunto de dos o más versos forma una estrofa. La rima es la igualdad o semejanza de sonidos que existe al final de los versos. Los versos de un poema pueden tener rima o no tenerla."
+  },
+  {
+    "id": "espanol3-bloque2-poesia-significado-literal-literario",
+    "subject": "Espanol (tercero)",
+    "title": "Significado literal y literario",
+    "keywords": ["significado literal", "sentido figurado", "literario", "poemas", "imaginacion"],
+    "content": "En los textos informativos las palabras tienen significado literal, es decir, se usan para decir algo de manera sencilla, clara, precisa y directa. En los poemas, las palabras adquieren un significado literario, también llamado sentido figurado, con el que comunican sensaciones y sentimientos. Por ejemplo, decir que la princesa tiene boca de fresa es un significado figurado, porque en realidad una boca no es de fresa."
+  },
+  {
+    "id": "espanol3-bloque2-poesia-recursos-literarios",
+    "subject": "Espanol (tercero)",
+    "title": "Recursos literarios: símil, onomatopeya y aliteración",
+    "keywords": ["simil", "comparacion", "onomatopeya", "aliteracion", "recursos literarios"],
+    "content": "Los poetas emplean recursos para hacernos sentir, ver e imaginar el mundo de manera diferente. El símil es una comparación entre dos cosas que se parecen y usa las palabras como, cual, igual que o parece. La onomatopeya imita los sonidos naturales de animales, objetos o acciones, como ¡tun, tun! La aliteración repite letras cuyo sonido simula algo, como la s para imitar el zumbido de las abejas."
+  },
+  {
+    "id": "espanol3-bloque2-nacimiento-acta-de-nacimiento",
+    "subject": "Espanol (tercero)",
+    "title": "El acta de nacimiento y el borrador",
+    "keywords": ["acta de nacimiento", "documento", "nacimiento", "registro", "borrador"],
+    "content": "El acta de nacimiento es un documento oficial en el que se registran los datos del nacimiento de una persona. En ella se encuentran el nombre completo, la fecha de nacimiento, el lugar donde se nació y se registró, y el nombre de los padres y de los abuelos. Para escribir la historia de nuestro nacimiento se pregunta a la familia, se revisa el acta y se anotan las ideas en orden: primero lo que ocurrió antes y después lo que siguió. La primera versión del texto se llama borrador y se corrige varias veces."
+  },
+  {
+    "id": "espanol3-bloque2-nacimiento-signos-de-puntuacion",
+    "subject": "Espanol (tercero)",
+    "title": "Los signos de puntuación",
+    "keywords": ["puntuacion", "coma", "punto", "punto y coma", "oracion"],
+    "content": "Los signos de puntuación son útiles para quien escribe y para quien lee: sirven para separar las ideas y expresarlas correctamente. Hay cuatro signos fundamentales: la coma, el punto y coma, el punto y seguido y el punto y aparte. La coma separa las palabras de una lista, y el punto se usa al final de una oración o de un párrafo."
+  },
+  {
+    "id": "espanol3-bloque3-divulgacion-articulo",
+    "subject": "Espanol (tercero)",
+    "title": "Artículo de divulgación científica",
+    "keywords": ["divulgacion cientifica", "articulo", "ciencia", "lenguaje literal", "exposicion"],
+    "content": "El artículo de divulgación científica es un texto informativo que comunica de manera exacta y real descubrimientos o explicaciones de la ciencia. Está escrito con lenguaje literal y de forma expositiva, porque expone, explica, ejemplifica y describe. Tiene título, subtítulos e ilustraciones con su pie, que es un texto breve que explica lo que se muestra. Se difunde en revistas, libros, programas de radio y televisión o páginas de Internet."
+  },
+  {
+    "id": "espanol3-bloque3-divulgacion-familias-de-palabras",
+    "subject": "Espanol (tercero)",
+    "title": "Familias de palabras",
+    "keywords": ["familias de palabras", "raiz", "ortografia", "derivadas", "palabras"],
+    "content": "Las palabras de una familia derivan de otra palabra con la que se relacionan por su significado. Por ejemplo, científica, científicos y científicamente son parte de una familia que se relaciona con la palabra ciencia. Las palabras de una familia generalmente conservan una ortografía semejante, por eso conocer la familia de una palabra ayuda a escribirla de manera correcta."
+  },
+  {
+    "id": "espanol3-bloque3-autobiografia-autobiografia",
+    "subject": "Espanol (tercero)",
+    "title": "La autobiografía",
+    "keywords": ["autobiografia", "vida", "recuerdos", "primera persona", "linea del tiempo"],
+    "content": "Una autobiografía es un texto donde una persona narra su propia vida. Está escrita en primera persona (nací, crecí, lloré, amé) y cuenta los sucesos más importantes en orden cronológico, desde el nacimiento hasta el momento actual. La persona que la escribe trabaja principalmente con sus recuerdos y es el personaje principal de su historia. Para escribirla se puede elaborar una línea del tiempo con los momentos más valiosos de la vida."
+  },
+  {
+    "id": "espanol3-bloque3-autobiografia-tiempo-preterito",
+    "subject": "Espanol (tercero)",
+    "title": "El tiempo pretérito",
+    "keywords": ["preterito", "pasado", "verbos", "conjugacion", "autobiografia"],
+    "content": "Los verbos en pretérito, también llamado pasado, sirven para narrar acciones que ocurrieron en un tiempo anterior al presente y que ya concluyeron. Palabras como nací, salió, ingresé, viví y tuvimos están conjugadas en pretérito. Las autobiografías y las noticias se escriben principalmente con este tiempo verbal, porque cuentan hechos que ya sucedieron."
+  },
+  {
+    "id": "espanol3-bloque3-noticias-periodico",
+    "subject": "Espanol (tercero)",
+    "title": "El periódico",
+    "keywords": ["periodico", "diario", "primera plana", "columnas", "noticias"],
+    "content": "El periódico es un medio que informa sobre los sucesos del día; como aparece todos los días, también se le llama diario. Su primera hoja se llama primera plana, donde aparece la noticia más importante, otras noticias secundarias, el nombre del periódico y la fecha. Las hojas se llaman planas periodísticas, las noticias van colocadas en columnas y sus títulos tienen letras más grandes y oscuras."
+  },
+  {
+    "id": "espanol3-bloque3-noticias-secciones",
+    "subject": "Espanol (tercero)",
+    "title": "Las secciones del periódico",
+    "keywords": ["secciones", "periodico", "nacional", "deportes", "cultura"],
+    "content": "Los periódicos tienen conjuntos de páginas que agrupan las noticias de acuerdo con el tipo de información que contienen; a estos conjuntos se les llama secciones. Cada sección tiene un título que también se llama cabeza o encabezado. Algunas secciones son nacional o local, internacional, económica, cultural, de eventos sociales, deportiva e infantil."
+  },
+  {
+    "id": "espanol3-bloque3-noticias-noticia",
+    "subject": "Espanol (tercero)",
+    "title": "La noticia y la nota periodística",
+    "keywords": ["noticia", "nota periodistica", "suceso", "informacion", "reciente"],
+    "content": "La noticia es un suceso o hecho que ha acontecido, y la nota periodística es el texto con el que se dan a conocer esos sucesos. Las noticias informan un hecho importante que ocurrió recientemente y narran lo que pasó, quiénes participaron, y el lugar y el momento en que sucedieron los acontecimientos. Para resumir una noticia se responde qué, cómo, cuándo y dónde sucedieron los hechos."
+  },
+  {
+    "id": "espanol3-bloque4-proceso-describir-un-proceso",
+    "subject": "Espanol (tercero)",
+    "title": "Describir un proceso",
+    "keywords": ["proceso", "orden", "etapas", "secuencia", "describir"],
+    "content": "Describir un proceso requiere exponer de manera ordenada las fases del mismo, indicando qué sucede en cada etapa y cómo sucede. Se usan palabras que indican el orden temporal, como primero, en seguida, después y finalmente. Para explicarlo se emplean los verbos en presente impersonal (se mezclan, se agregan, se usa) y se pueden hacer dibujos o diagramas para recordar la secuencia."
+  },
+  {
+    "id": "espanol3-bloque4-cuentos-personajes",
+    "subject": "Espanol (tercero)",
+    "title": "Los personajes de los cuentos",
+    "keywords": ["personajes", "cuentos", "protagonista", "antagonista", "secundarios"],
+    "content": "Las personas, objetos o animales fantásticos que aparecen en los cuentos se conocen como personajes, y participan en lo que sucede y se narra. Los personajes principales son el protagonista y el antagonista, y los personajes secundarios ayudan u obstaculizan a otros, dan información o agilizan la historia. Cada personaje tiene características propias, como cualidades, sentimientos, apariencia física y actitudes."
+  },
+  {
+    "id": "espanol3-bloque4-cuentos-adjetivos-y-adverbios",
+    "subject": "Espanol (tercero)",
+    "title": "Adjetivos calificativos y adverbios",
+    "keywords": ["adjetivos", "adverbios", "describir", "calificar", "personajes"],
+    "content": "Los adjetivos calificativos son palabras que definen o califican a los personajes, como hermosa, egoísta, tímido o trabajador. Los adverbios son palabras que modifican a los verbos y a los adjetivos e indican cuándo, dónde, de qué manera y en qué cantidad suceden los hechos. Usar adjetivos y adverbios sirve para describir mejor a los personajes y los escenarios de los cuentos."
+  },
+  {
+    "id": "espanol3-bloque4-cuentos-escenarios",
+    "subject": "Espanol (tercero)",
+    "title": "Escenarios y descripción",
+    "keywords": ["escenarios", "espacios", "cuentos", "descripcion", "lugares"],
+    "content": "En los cuentos se describen los lugares donde suceden los hechos narrados; a estos lugares se les llama espacios o escenarios. Por ejemplo, Hansel y Gretel llegan a una casita hecha de pan, cubierta de bizcocho y con ventanas de azúcar. Una descripción es un retrato hecho con palabras, en el que se mencionan de manera detallada las características de personas, lugares, objetos y animales."
+  },
+  {
+    "id": "espanol3-bloque4-encuesta-encuesta",
+    "subject": "Espanol (tercero)",
+    "title": "La encuesta",
+    "keywords": ["encuesta", "cuestionario", "opinion", "preguntas", "respuestas"],
+    "content": "La encuesta es un cuestionario que tiene como finalidad averiguar la opinión de las personas sobre algo: una situación, un acontecimiento, un producto o un servicio. Sus preguntas pueden tener respuestas cerradas, con un número limitado de opciones, o respuestas abiertas, donde cada persona responde libremente. Las preguntas se escriben con signos de interrogación y con un lenguaje sencillo, claro, directo y breve."
+  },
+  {
+    "id": "espanol3-bloque4-encuesta-informe",
+    "subject": "Espanol (tercero)",
+    "title": "El informe de la encuesta",
+    "keywords": ["informe", "reporte", "introduccion", "desarrollo", "conclusiones"],
+    "content": "El informe o reporte de una encuesta presenta los resultados que se obtuvieron. Se organiza en tres partes: la introducción, donde se explica para qué se hizo la encuesta y a quiénes; el desarrollo, donde se presentan las preguntas y sus resultados; y las conclusiones, donde se resume lo que se averiguó. Los resultados se pueden anotar en tablas de frecuencia y dibujar en gráficas."
+  },
+  {
+    "id": "espanol3-bloque5-teatro-obra-de-teatro",
+    "subject": "Espanol (tercero)",
+    "title": "La obra de teatro y el libreto",
+    "keywords": ["teatro", "libreto", "escenas", "parlamentos", "personajes"],
+    "content": "La obra de teatro se escribe en un libreto y se representa por actores en un escenario. Se divide en escenas, y cada escena indica el número, el lugar donde ocurre la acción y los personajes que intervienen. En el libreto se anota el nombre del personaje que va a decir un parlamento o diálogo, seguido de dos puntos, y después se escribe el diálogo tal como lo dirá en voz alta. Los personajes expresan con su cuerpo y su voz distintas emociones."
+  },
+  {
+    "id": "espanol3-bloque5-teatro-acotaciones",
+    "subject": "Espanol (tercero)",
+    "title": "Las acotaciones",
+    "keywords": ["acotaciones", "parentesis", "libreto", "escenario", "indicaciones"],
+    "content": "Las acotaciones son las indicaciones que hace el autor sobre el vestuario, el tono de voz de los personajes o sus acciones, como sale con una capa roja o fingiendo la voz. Se anotan entre paréntesis en el libreto y no se leen en voz alta. Gracias a ellas, cada actor sabe cómo tiene que hablar o moverse en el escenario."
+  },
+  {
+    "id": "espanol3-bloque5-recetario-receta",
+    "subject": "Espanol (tercero)",
+    "title": "La receta y el recetario",
+    "keywords": ["receta", "recetario", "instructivo", "ingredientes", "preparacion"],
+    "content": "La receta es un tipo de instructivo en el que se indican de forma breve los pasos que se deben seguir para elaborar algo, y a veces los pasos se presentan numerados. Una receta de remedio casero tiene título, la lista de ingredientes con sus cantidades exactas, la forma de preparación y el modo de empleo y la dosis. Los pasos se escriben en orden, con verbos en infinitivo y de manera breve, clara y precisa. El recetario es el libro que reúne varias recetas."
+  },
+  {
+    "id": "espanol3-bloque5-recetario-verbos-en-infinitivo",
+    "subject": "Espanol (tercero)",
+    "title": "Verbos en infinitivo",
+    "keywords": ["infinitivo", "verbos", "terminacion", "instrucciones", "recetas"],
+    "content": "Generalmente, en las recetas y en los instructivos, para dar una indicación se utilizan los verbos con terminación en ar, er o ir; estos verbos están escritos en infinitivo. En esta forma, los verbos no están conjugados, por eso no indican quién o quiénes realizan la acción ni el tiempo en que se realiza. Por ejemplo: poner a calentar el agua, agregar los cabellos de elote y disolver la sal."
+  },
+  {
+    "id": "espanol3-bloque5-recetario-remedios-caseros",
+    "subject": "Espanol (tercero)",
+    "title": "Remedios caseros y medicina tradicional",
+    "keywords": ["remedios", "hierbas", "plantas", "yerbero", "medicina tradicional"],
+    "content": "Los remedios caseros se preparan con hierbas y plantas para aminorar malestares, prevenir enfermedades y cuidar el aspecto físico. El yerbero o yerbera es una persona que tiene conocimientos de los usos benéficos y las propiedades curativas de las hierbas, plantas, flores y frutos. Muchas medicinas modernas se elaboran con sustancias que se obtienen de las plantas. Si un malestar es grave o se repite mucho, lo adecuado es acudir al médico para que haga un diagnóstico acertado."
+  }
+]
