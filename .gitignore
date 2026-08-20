@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+.gradle/
+build/
+*/build/
+local.properties
+*.iml
+.idea/
+.kotlin/
+*.apk

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AprendIA - Demo Offline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <img src="assets/aprendia-logo.jpeg" alt="" />
+          </span>
+          <span class="brand-name">AprendIA</span>
+        </div>
+        <button id="clear-history" class="new-chat" type="button">
+          <span class="new-chat-icon" aria-hidden="true">&#9998;</span>
+          Nuevo chat
+        </button>
+      </header>
+
+      <section class="chat-area" aria-label="Chat educativo">
+        <div id="empty-state" class="empty-state">
+          <div class="empty-mascot" aria-hidden="true">
+            <img src="assets/aprendia-logo.jpeg" alt="" />
+          </div>
+          <h1>Hola, soy AprendIA</h1>
+          <p>Pregunta lo que quieras aprender</p>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+      </section>
+
+      <section class="composer-area">
+        <div class="chips" aria-label="Sugerencias">
+          <button class="chip" type="button" data-question="Que es la fotosintesis?">
+            <span class="chip-icon plants" aria-hidden="true">&#127793;</span>
+            <span class="chip-label">Plantas</span>
+          </button>
+          <button class="chip" type="button" data-question="Que es una suma?">
+            <span class="chip-icon math" aria-hidden="true">&#10133;</span>
+            <span class="chip-label">Sumas</span>
+          </button>
+          <button class="chip" type="button" data-question="Que es un sustantivo?">
+            <span class="chip-icon words" aria-hidden="true">&#128218;</span>
+            <span class="chip-label">Palabras</span>
+          </button>
+          <button class="chip" type="button" data-question="Como cuidar el agua?">
+            <span class="chip-icon water" aria-hidden="true">&#128167;</span>
+            <span class="chip-label">Cuidar el agua</span>
+          </button>
+        </div>
+
+        <form id="question-form" class="composer">
+          <input
+            id="question-input"
+            name="question"
+            autocomplete="off"
+            placeholder="Pregunta a AprendIA..."
+            required
+          />
+          <button id="mic-button" class="icon-button" type="button" aria-label="Hablar" title="Hablar">
+            <span class="mic-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="2" width="6" height="12" rx="3" />
+                <path d="M5 10a7 7 0 0 0 14 0" />
+                <path d="M12 17v4" />
+              </svg>
+            </span>
+          </button>
+          <button class="send-button" type="submit" aria-label="Enviar" title="Enviar">
+            <span aria-hidden="true">&#8593;</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
