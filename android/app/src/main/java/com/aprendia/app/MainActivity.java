@@ -36,6 +36,8 @@ import com.aprendia.app.domain.AnswerQuestionUseCase;
 import com.aprendia.app.domain.ChatRecord;
 import com.aprendia.app.knowledge.KnowledgeAssetsLoader;
 import com.aprendia.app.knowledge.KnowledgeRepository;
+import com.aprendia.app.llm.LlamaCppLocalLlmEngine;
+import com.aprendia.app.llm.ModelFileStore;
 import com.aprendia.app.safety.SafetyFilter;
 
 import java.util.ArrayList;
@@ -73,7 +75,10 @@ public final class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         historyStore = new HistoryStore(this);
         answerQuestionUseCase = new AnswerQuestionUseCase(
-                new KnowledgeRepository(KnowledgeAssetsLoader.load(this)), new SafetyFilter());
+                new KnowledgeRepository(KnowledgeAssetsLoader.load(this)),
+                new SafetyFilter(),
+                new LlamaCppLocalLlmEngine(new ModelFileStore(this))
+        );
         font = getResources().getFont(R.font.fredoka);
 
         setContentView(R.layout.activity_main);

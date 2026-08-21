@@ -6,11 +6,12 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 
 | Componente | Estado |
 |---|---|
-| App Android (v0.3.1) | Disponible en `android/` |
+| App Android (v0.4.0) | Disponible en `android/` |
 | Demo web offline | Disponible en `prototype-web/` |
 | Base de conocimiento local | Precargada, cerrada y de solo lectura (117 temas) |
 | Búsqueda offline | Textual por palabras clave, priorizando coincidencias específicas |
 | Respuestas controladas | Basadas solo en fragmentos encontrados |
+| LLM local | Preparado para Qwen2.5-0.5B-Instruct GGUF Q4 mediante motor local llama.cpp |
 | Filtro de seguridad infantil | Bloquea temas inapropiados antes y después de responder |
 | Historial local | Android: `SharedPreferences`; Web: `localStorage` |
 | Lectura en voz alta | Android: `TextToSpeech` (`es-CO`); Web: `speechSynthesis` |
@@ -28,6 +29,7 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 | 0.2.1 | Micrófono con reconocimiento de voz `es-CO` y streaming de respuestas |
 | 0.3.0 | Base de conocimiento expandida a 117 temas desde 3 libros SEP de tercero (Ciencias Naturales, Español, Matemáticas) cargados desde `assets/knowledge/*.json` |
 | 0.3.1 | Búsqueda que prioriza coincidencias específicas (frases largas como "fases de la luna" sobre palabras genéricas como "luna") |
+| 0.4.0 | Integración controlada de LLM local: prompt restringido a básica primaria, detección de modelo Qwen2.5-0.5B GGUF y fallback si el modelo no está instalado |
 
 ## Cómo Probar Rápido En Navegador
 
@@ -77,7 +79,9 @@ o en la pestaña **Actions → Build APK → Summary** del repositorio.
 Pregunta del niño
     -> filtro de seguridad
     -> búsqueda en material escolar precargado
-    -> respuesta basada solo en fragmentos encontrados
+    -> búsqueda en material escolar local
+    -> si hay modelo local instalado, explicación con LLM usando solo ese contexto
+    -> si no hay modelo local, respuesta directa basada en fragmentos encontrados
     -> respuesta segura si no hay información suficiente
     -> guardado en historial local
     -> lectura en voz alta opcional
@@ -85,7 +89,7 @@ Pregunta del niño
 
 ## Limitaciones Intencionales
 
-- No integra todavía un LLM local.
+- El motor nativo llama.cpp queda preparado por contrato; el APK no incluye el modelo GGUF por tamaño/licencia.
 - No usa embeddings ni RAG semántico.
 - La entrada por voz depende del servicio de voz de Google (no es 100% offline).
 - La base de conocimiento es cerrada: solo responde sobre el material precargado (3 libros SEP de tercero + temas básicos).
@@ -104,3 +108,21 @@ Las entradas viven como JSON en `android/app/src/main/assets/knowledge/` y se ca
 Cada entrada usa el formato: `id`, `subject`, `title`, `keywords` (minúsculas, sin tildes) y `content` (redacción sencilla fiel al libro). La demo web usa la misma base consolidada en `prototype-web/knowledge/knowledge.js`.
 
 Estas limitaciones mantienen el prototipo simple, explicable, offline y adecuado para validar la experiencia inicial.
+
+## Modelo local LLM
+
+La app queda preparada para usar **Qwen2.5-0.5B-Instruct GGUF Q4**, un modelo ligero y multilingüe recomendado para pruebas locales en Android.
+
+El archivo del modelo no se versiona ni se empaqueta dentro del APK. Debe instalarse en el almacenamiento privado de la app con el nombre:
+
+```text
+qwen2.5-0.5b-instruct-q4.gguf
+```
+
+Ruta esperada dentro del dispositivo:
+
+```text
+/data/data/com.aprendia.app/files/models/qwen2.5-0.5b-instruct-q4.gguf
+```
+
+El LLM solo se usa cuando la búsqueda local encuentra material escolar relevante. Si no hay material, si el modelo no está instalado o si el motor local falla, AprendIA conserva la respuesta segura basada en la base de conocimiento local.
