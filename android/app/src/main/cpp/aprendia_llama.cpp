@@ -3,16 +3,18 @@
 #include <algorithm>
 #include <mutex>
 #include <string>
+#include <thread>
 #include <vector>
 
 #include "llama.h"
 
 #define LOG_TAG "AprendIA-LLM"
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 
 namespace {
-constexpr int kMaxGeneratedTokens = 180;
-constexpr int kContextPadding = 32;
+constexpr int kMaxGeneratedTokens = 96;
+constexpr int kContextPadding = 16;
 
 std::mutex g_mutex;
 llama_model * g_model = nullptr;
@@ -37,6 +39,7 @@ bool ensure_model_loaded(const std::string & model_path) {
     }
 
     ggml_backend_load_all();
+    LOGI("Loading model: %s", model_path.c_str());
 
     llama_model_params model_params = llama_model_default_params();
     model_params.n_gpu_layers = 0;
@@ -48,6 +51,7 @@ bool ensure_model_loaded(const std::string & model_path) {
     }
 
     g_model_path = model_path;
+    LOGI("Model loaded");
     return true;
 }
 
@@ -85,10 +89,13 @@ std::string generate_response(const std::string & model_path, const std::string 
     if (prompt_tokens.empty()) {
         throw std::runtime_error("No se pudo tokenizar la pregunta.");
     }
+    LOGI("Prompt tokens: %zu", prompt_tokens.size());
 
     llama_context_params ctx_params = llama_context_default_params();
     ctx_params.n_ctx = static_cast<uint32_t>(prompt_tokens.size() + kMaxGeneratedTokens + kContextPadding);
-    ctx_params.n_batch = static_cast<uint32_t>(std::min<size_t>(prompt_tokens.size(), 512));
+    ctx_params.n_batch = ctx_params.n_ctx;
+    ctx_params.n_threads = static_cast<int32_t>(std::max(1u, std::min(4u, std::thread::hardware_concurrency())));
+    ctx_params.n_threads_batch = ctx_params.n_threads;
     ctx_params.no_perf = true;
 
     llama_context * ctx = llama_init_from_model(g_model, ctx_params);
@@ -110,6 +117,7 @@ std::string generate_response(const std::string & model_path, const std::string 
         llama_free(ctx);
         throw std::runtime_error("No se pudo procesar el prompt.");
     }
+    LOGI("Prompt decoded");
 
     std::string output;
     for (int i = 0; i < kMaxGeneratedTokens; i += 1) {
@@ -118,6 +126,7 @@ std::string generate_response(const std::string & model_path, const std::string 
             break;
         }
 
+        llama_sampler_accept(sampler, token);
         output += token_to_text(vocab, token);
 
         batch = llama_batch_get_one(&token, 1);
@@ -128,6 +137,7 @@ std::string generate_response(const std::string & model_path, const std::string 
 
     llama_sampler_free(sampler);
     llama_free(ctx);
+    LOGI("Generated chars: %zu", output.size());
     return output;
 }
 }
@@ -158,5 +168,27 @@ Java_com_aprendia_app_llm_LlamaCppLocalLlmEngine_generateNative(
     } catch (const std::exception & exception) {
         throw_illegal_state(env, exception.what());
         return nullptr;
+    }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_aprendia_app_llm_LlamaCppLocalLlmEngine_loadModelNative(
+        JNIEnv * env,
+        jobject,
+        jstring model_path
+) {
+    const char * model_path_chars = env->GetStringUTFChars(model_path, nullptr);
+    std::string model_path_string(model_path_chars == nullptr ? "" : model_path_chars);
+    if (model_path_chars != nullptr) {
+        env->ReleaseStringUTFChars(model_path, model_path_chars);
+    }
+
+    try {
+        std::lock_guard<std::mutex> lock(g_mutex);
+        if (!ensure_model_loaded(model_path_string)) {
+            throw std::runtime_error("No se pudo cargar el modelo local.");
+        }
+    } catch (const std::exception & exception) {
+        throw_illegal_state(env, exception.what());
     }
 }

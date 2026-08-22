@@ -64,8 +64,8 @@ public final class AnswerQuestionUseCaseTest {
 
         assertEquals("Respuesta generada con material escolar.", answer.getText());
         assertEquals("Ciencias naturales: La fotosintesis + modelo local", answer.getSource());
-        assertTrue(llm.lastPrompt.contains("Usa únicamente el material escolar proporcionado."));
-        assertTrue(llm.lastPrompt.contains("básica primaria"));
+        assertTrue(llm.lastPrompt.contains("Usa solo el material."));
+        assertTrue(llm.lastPrompt.contains("respuesta completa"));
     }
 
     @Test
@@ -83,10 +83,88 @@ public final class AnswerQuestionUseCaseTest {
         assertNull(llm.lastPrompt);
     }
 
+    @Test
+    public void answer_cleansLocalLlmChatTemplateTokens() {
+        FakeLocalLlmEngine llm = new FakeLocalLlmEngine(true,
+                "<|im_start|>assistant\nLas plantas fabrican su alimento con luz, agua y aire.<|im_end|>");
+        AnswerQuestionUseCase llmUseCase = new AnswerQuestionUseCase(new KnowledgeRepository(List.of(
+                new KnowledgeEntry("ciencias-fotosintesis", "Ciencias naturales", "La fotosintesis",
+                        new String[]{"fotosintesis", "plantas"},
+                        "La fotosintesis es el proceso por el cual las plantas fabrican su alimento.")
+        )), new SafetyFilter(), llm);
+
+        Answer answer = llmUseCase.answer("Que es la fotosintesis?");
+
+        assertEquals("Las plantas fabrican su alimento con luz, agua y aire.", answer.getText());
+    }
+
+    @Test
+    public void answer_fallsBackToKnowledgeWhenLocalLlmFails() {
+        FakeLocalLlmEngine llm = new FakeLocalLlmEngine(true, "Respuesta");
+        llm.failure = new IllegalStateException("No se pudo iniciar el contexto del modelo.");
+        AnswerQuestionUseCase llmUseCase = new AnswerQuestionUseCase(new KnowledgeRepository(List.of(
+                new KnowledgeEntry("ciencias-fotosintesis", "Ciencias naturales", "La fotosintesis",
+                        new String[]{"fotosintesis", "plantas"},
+                        "La fotosintesis es el proceso por el cual las plantas fabrican su alimento.")
+        )), new SafetyFilter(), llm);
+
+        Answer answer = llmUseCase.answer("Que es la fotosintesis?");
+
+        assertEquals("Ciencias naturales: La fotosintesis", answer.getSource());
+        assertTrue(answer.getText().contains("Intentemos aprenderlo juntos"));
+    }
+
+    @Test
+    public void answer_fallsBackToKnowledgeWhenLocalLlmResponseIsEmpty() {
+        FakeLocalLlmEngine llm = new FakeLocalLlmEngine(true, "   ");
+        AnswerQuestionUseCase llmUseCase = new AnswerQuestionUseCase(new KnowledgeRepository(List.of(
+                new KnowledgeEntry("ciencias-fotosintesis", "Ciencias naturales", "La fotosintesis",
+                        new String[]{"fotosintesis", "plantas"},
+                        "La fotosintesis es el proceso por el cual las plantas fabrican su alimento.")
+        )), new SafetyFilter(), llm);
+
+        Answer answer = llmUseCase.answer("Que es la fotosintesis?");
+
+        assertEquals("Ciencias naturales: La fotosintesis", answer.getSource());
+        assertTrue(answer.getText().contains("Intentemos aprenderlo juntos"));
+    }
+
+    @Test
+    public void answer_fallsBackToKnowledgeWhenLocalLlmResponseIsIncomplete() {
+        FakeLocalLlmEngine llm = new FakeLocalLlmEngine(true, "Los gatos pertenecen a la especie");
+        AnswerQuestionUseCase llmUseCase = new AnswerQuestionUseCase(new KnowledgeRepository(List.of(
+                new KnowledgeEntry("ciencias-gatos", "Ciencias naturales", "Gatos domesticos",
+                        new String[]{"gatos", "especie", "felis catus"},
+                        "Los gatos domésticos son animales mamíferos y felinos. Su especie se llama Felis catus.")
+        )), new SafetyFilter(), llm);
+
+        Answer answer = llmUseCase.answer("A que especie pertenecen los gatos?");
+
+        assertEquals("Ciencias naturales: Gatos domesticos", answer.getSource());
+        assertTrue(answer.getText().contains("Felis catus"));
+    }
+
+    @Test
+    public void answerWithoutLocalModel_skipsAvailableLocalLlm() {
+        FakeLocalLlmEngine llm = new FakeLocalLlmEngine(true, "No debe usarse");
+        AnswerQuestionUseCase llmUseCase = new AnswerQuestionUseCase(new KnowledgeRepository(List.of(
+                new KnowledgeEntry("ciencias-fotosintesis", "Ciencias naturales", "La fotosintesis",
+                        new String[]{"fotosintesis", "plantas"},
+                        "La fotosintesis es el proceso por el cual las plantas fabrican su alimento.")
+        )), new SafetyFilter(), llm);
+
+        Answer answer = llmUseCase.answerWithoutLocalModel("Que es la fotosintesis?");
+
+        assertTrue(answer.getText().contains("Intentemos aprenderlo juntos"));
+        assertEquals("Ciencias naturales: La fotosintesis", answer.getSource());
+        assertNull(llm.lastPrompt);
+    }
+
     private static final class FakeLocalLlmEngine implements LocalLlmEngine {
         private final boolean available;
         private final String response;
         private String lastPrompt;
+        private RuntimeException failure;
 
         private FakeLocalLlmEngine(boolean available, String response) {
             this.available = available;
@@ -106,6 +184,9 @@ public final class AnswerQuestionUseCaseTest {
         @Override
         public String generate(String prompt) {
             lastPrompt = prompt;
+            if (failure != null) {
+                throw failure;
+            }
             return response;
         }
     }

@@ -2,36 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/aprendia_bg"
+    android:background="@drawable/app_background"
     android:orientation="vertical"
     android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingTop="8dp"
         android:paddingBottom="12dp">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <FrameLayout
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:background="@drawable/bubble_user"
-                android:clipToOutline="true">
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@drawable/mascot_bg">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/aprendia_logo" />
+                    android:contentDescription="Mascota de AprendIA"
+                    android:padding="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/aprendia_keki" />
             </FrameLayout>
 
             <TextView
@@ -39,40 +38,49 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:fontFamily="@font/fredoka"
+                android:includeFontPadding="false"
                 android:text="AprendIA"
                 android:textColor="@color/aprendia_ink"
-                android:textSize="24sp"
+                android:textSize="28sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/model_button"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/pill_bg"
-            android:fontFamily="@font/fredoka"
-            android:paddingStart="14dp"
-            android:paddingEnd="14dp"
-            android:text="Modelo"
-            android:textAllCaps="false"
-            android:textColor="@color/aprendia_ink"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="end"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/new_chat_button"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:background="@drawable/pill_bg"
-            android:fontFamily="@font/fredoka"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:text="&#9998; Nuevo chat"
-            android:textAllCaps="false"
-            android:textColor="@color/aprendia_ink"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/model_status"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/pill_bg"
+                android:fontFamily="@font/fredoka"
+                android:gravity="center"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:text="Preparando LLM"
+                android:textColor="@color/aprendia_ink"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/new_chat_button"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:background="@drawable/pill_bg"
+                android:fontFamily="@font/fredoka"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="&#9998; Nuevo chat"
+                android:textAllCaps="false"
+                android:textColor="@color/aprendia_ink"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
     <FrameLayout
@@ -105,14 +113,14 @@
 
             <ImageView
                 android:id="@+id/mascot_image"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/mascot_bg"
-                android:clipToOutline="true"
                 android:contentDescription="Mascota de AprendIA"
-                android:scaleType="centerCrop"
-                android:src="@drawable/aprendia_logo" />
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/aprendia_keki" />
 
             <TextView
                 android:layout_width="wrap_content"

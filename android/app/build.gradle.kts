@@ -16,6 +16,12 @@ android {
         ndk {
             abiFilters += listOf("arm64-v8a")
         }
+        externalNativeBuild {
+            cmake {
+                arguments += listOf("-DCMAKE_BUILD_TYPE=Release")
+                cppFlags += listOf("-O3", "-DNDEBUG")
+            }
+        }
     }
 
     compileOptions {

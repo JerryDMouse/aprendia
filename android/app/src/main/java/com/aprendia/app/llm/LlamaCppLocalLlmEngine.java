@@ -1,6 +1,10 @@
 package com.aprendia.app.llm;
 
+import android.util.Log;
+
 public final class LlamaCppLocalLlmEngine implements LocalLlmEngine {
+    private static final String TAG = "AprendIA-LLM";
+
     private final ModelFileStore modelFileStore;
     private final boolean nativeLibraryLoaded;
 
@@ -20,7 +24,7 @@ public final class LlamaCppLocalLlmEngine implements LocalLlmEngine {
             return modelFileStore.getInstallHint();
         }
         if (!nativeLibraryLoaded) {
-            return "Motor llama.cpp local pendiente de empaquetar en la app.";
+            return "Motor llama.cpp local no disponible en este dispositivo.";
         }
         return "Modelo local listo: " + ModelFileStore.MODEL_DISPLAY_NAME;
     }
@@ -30,7 +34,24 @@ public final class LlamaCppLocalLlmEngine implements LocalLlmEngine {
         if (!isAvailable()) {
             throw new IllegalStateException(getStatus());
         }
-        return generateNative(modelFileStore.getModelFile().getAbsolutePath(), prompt);
+        long startedAt = System.currentTimeMillis();
+        String modelPath = modelFileStore.getModelFile().getAbsolutePath();
+        Log.i(TAG, "Starting local generation. modelBytes=" + modelFileStore.getModelFile().length()
+                + " promptChars=" + prompt.length());
+        String response = generateNative(modelPath, prompt);
+        Log.i(TAG, "Finished local generation in " + (System.currentTimeMillis() - startedAt)
+                + " ms, responseChars=" + (response == null ? 0 : response.length()));
+        return response;
+    }
+
+    public void preload() {
+        if (!isAvailable()) {
+            return;
+        }
+        long startedAt = System.currentTimeMillis();
+        Log.i(TAG, "Preloading local model. modelBytes=" + modelFileStore.getModelFile().length());
+        loadModelNative(modelFileStore.getModelFile().getAbsolutePath());
+        Log.i(TAG, "Preloaded local model in " + (System.currentTimeMillis() - startedAt) + " ms");
     }
 
     private boolean loadNativeLibrary() {
@@ -43,4 +64,6 @@ public final class LlamaCppLocalLlmEngine implements LocalLlmEngine {
     }
 
     private native String generateNative(String modelPath, String prompt);
+
+    private native void loadModelNative(String modelPath);
 }

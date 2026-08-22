@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,6 +22,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -42,29 +42,39 @@ import com.aprendia.app.llm.LlamaCppLocalLlmEngine;
 import com.aprendia.app.llm.ModelFileStore;
 import com.aprendia.app.safety.SafetyFilter;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public final class MainActivity extends Activity {
+    private static final String TAG = "AprendIA-LLM";
     private static final int REQUEST_RECORD_AUDIO = 100;
-    private static final int REQUEST_MODEL_FILE = 200;
     private static final int STREAM_CHARS_PER_TICK = 3;
     private static final long STREAM_TICK_MS = 30;
+    private static final long ANSWER_TIMEOUT_SECONDS = 12;
+    private static final long LOCAL_MODEL_COOLDOWN_MS = 120_000;
 
     private LinearLayout messagesLayout;
     private LinearLayout emptyState;
     private EditText questionInput;
     private ScrollView chatScroll;
     private ImageButton micButton;
-    private Button modelButton;
+    private TextView modelStatus;
     private HistoryStore historyStore;
     private AnswerQuestionUseCase answerQuestionUseCase;
     private ModelFileStore modelFileStore;
+    private LlamaCppLocalLlmEngine localLlmEngine;
     private TextToSpeech textToSpeech;
     private SpeechRecognizer speechRecognizer;
     private final Handler handler = new Handler(Looper.getMainLooper());
+    private final ExecutorService answerExecutor = Executors.newSingleThreadExecutor();
+    private long localModelPausedUntilMillis;
+    private volatile boolean localModelPreloading;
     private Typeface font;
     private ImageButton speakingListenButton;
 
@@ -81,10 +91,11 @@ public final class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         historyStore = new HistoryStore(this);
         modelFileStore = new ModelFileStore(this);
+        localLlmEngine = new LlamaCppLocalLlmEngine(modelFileStore);
         answerQuestionUseCase = new AnswerQuestionUseCase(
                 new KnowledgeRepository(KnowledgeAssetsLoader.load(this)),
                 new SafetyFilter(),
-                new LlamaCppLocalLlmEngine(modelFileStore)
+                localLlmEngine
         );
         font = getResources().getFont(R.font.fredoka);
 
@@ -94,13 +105,15 @@ public final class MainActivity extends Activity {
         chatScroll = findViewById(R.id.chat_scroll);
         questionInput = findViewById(R.id.question_input);
         micButton = findViewById(R.id.mic_button);
-        modelButton = findViewById(R.id.model_button);
+        modelStatus = findViewById(R.id.model_status);
 
         configureComposer();
         configureChips();
         configureTopBar();
         configureTts();
         renderHistory(false);
+        ensureModelAvailableInBackground();
+        preloadLocalModelInBackground();
     }
 
     @Override
@@ -113,6 +126,7 @@ public final class MainActivity extends Activity {
             textToSpeech.shutdown();
         }
         handler.removeCallbacksAndMessages(null);
+        answerExecutor.shutdownNow();
         super.onDestroy();
     }
 
@@ -124,14 +138,6 @@ public final class MainActivity extends Activity {
             startVoiceInput();
         } else {
             setListeningState(false);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_MODEL_FILE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            importModel(data.getData());
         }
     }
 
@@ -184,9 +190,8 @@ public final class MainActivity extends Activity {
     }
 
     private void configureTopBar() {
-        updateModelButton();
-        modelButton.setTypeface(font, Typeface.BOLD);
-        modelButton.setOnClickListener(view -> openModelPicker());
+        updateModelStatus();
+        modelStatus.setTypeface(font, Typeface.BOLD);
 
         Button newChatButton = findViewById(R.id.new_chat_button);
         newChatButton.setTypeface(font, Typeface.BOLD);
@@ -208,9 +213,12 @@ public final class MainActivity extends Activity {
         }
         questionInput.setText("");
         hideKeyboard();
-        Toast.makeText(this, "Buscando en el material escolar...", Toast.LENGTH_SHORT).show();
+        showPendingQuestion(question);
+        Toast.makeText(this,
+                modelFileStore.isModelInstalled() ? "Pensando con modelo local..." : "Buscando en el material escolar...",
+                Toast.LENGTH_SHORT).show();
         new Thread(() -> {
-            Answer answer = answerQuestionUseCase.answer(question);
+            Answer answer = answerWithTimeout(question);
             runOnUiThread(() -> {
                 historyStore.append(new ChatRecord(question, answer.getText(), answer.getSource(), System.currentTimeMillis()));
                 renderHistory(true);
@@ -218,39 +226,116 @@ public final class MainActivity extends Activity {
         }).start();
     }
 
-    private void openModelPicker() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
-        startActivityForResult(intent, REQUEST_MODEL_FILE);
+    private Answer answerWithTimeout(String question) {
+        if (localModelPreloading) {
+            Log.i(TAG, "Skipping local model because preload is running.");
+            return answerQuestionUseCase.answerWithoutLocalModel(question);
+        }
+        if (modelFileStore.isModelInstalled() && System.currentTimeMillis() < localModelPausedUntilMillis) {
+            Log.i(TAG, "Skipping local model because cooldown is active.");
+            Answer fallback = answerQuestionUseCase.answerWithoutLocalModel(question);
+            return new Answer(fallback.getText(), fallback.getSource());
+        }
+
+        Log.i(TAG, "Submitting answer task. localInstalled=" + modelFileStore.isModelInstalled()
+                + " timeoutSeconds=" + ANSWER_TIMEOUT_SECONDS);
+        Future<Answer> future = answerExecutor.submit(() -> answerQuestionUseCase.answer(question));
+        try {
+            Answer answer = future.get(ANSWER_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+            Log.i(TAG, "Answer task completed. source=" + answer.getSource());
+            return answer;
+        } catch (TimeoutException error) {
+            localModelPausedUntilMillis = System.currentTimeMillis() + LOCAL_MODEL_COOLDOWN_MS;
+            Log.w(TAG, "Answer task timed out after " + ANSWER_TIMEOUT_SECONDS + " seconds.");
+            future.cancel(true);
+            Answer fallback = answerQuestionUseCase.answerWithoutLocalModel(question);
+            return new Answer(fallback.getText(), fallback.getSource());
+        } catch (Exception error) {
+            Log.e(TAG, "Answer task failed.", error);
+            return new Answer(
+                    "Tuve un problema preparando la respuesta. Intenta de nuevo.",
+                    "Error interno"
+            );
+        }
     }
 
-    private void importModel(Uri uri) {
-        modelButton.setEnabled(false);
-        modelButton.setText("Instalando...");
-        Toast.makeText(this, "Copiando modelo local. Esto puede tardar.", Toast.LENGTH_LONG).show();
+    private void showPendingQuestion(String question) {
+        renderHistory(false);
+        emptyState.setVisibility(View.GONE);
+        addMessage(question, true, null);
+
+        LinearLayout row = buildMessageRow(false);
+        TextView pending = buildMessageBubble(
+                modelFileStore.isModelInstalled() ? "Estoy pensando con el modelo local..." : "Estoy buscando en el material escolar...",
+                false
+        );
+        row.addView(pending);
+        messagesLayout.addView(row);
+        chatScroll.post(() -> chatScroll.fullScroll(View.FOCUS_DOWN));
+    }
+
+    private void ensureModelAvailableInBackground() {
+        if (!modelFileStore.shouldDownloadDefaultModel()) {
+            updateModelStatus();
+            return;
+        }
+        setModelStatus(modelFileStore.isModelInstalled() ? "Actualizando LLM..." : "Descargando LLM...");
         new Thread(() -> {
             try {
-                modelFileStore.importFrom(uri);
+                modelFileStore.downloadDefaultModel((copiedBytes, totalBytes) -> runOnUiThread(() -> {
+                    if (totalBytes > 0) {
+                        int progress = (int) Math.min(99, (copiedBytes * 100) / totalBytes);
+                        setModelStatus("LLM " + progress + "%");
+                    } else {
+                        setModelStatus("Descargando LLM");
+                    }
+                }));
                 runOnUiThread(() -> {
-                    updateModelButton();
-                    Toast.makeText(this, "Modelo local instalado.", Toast.LENGTH_LONG).show();
+                    updateModelStatus();
+                    Toast.makeText(this, "Modelo local listo.", Toast.LENGTH_LONG).show();
                 });
-            } catch (IOException error) {
+                preloadLocalModelInBackground();
+            } catch (Exception error) {
                 runOnUiThread(() -> {
-                    updateModelButton();
-                    Toast.makeText(this, "No se pudo instalar el modelo.", Toast.LENGTH_LONG).show();
+                    setModelStatus("LLM pendiente");
+                    Toast.makeText(this, "No se pudo descargar el modelo. Se reintentara al abrir la app.", Toast.LENGTH_LONG).show();
                 });
             }
         }).start();
     }
 
-    private void updateModelButton() {
-        if (modelButton == null) {
+    private void preloadLocalModelInBackground() {
+        if (!modelFileStore.isModelInstalled() || localModelPreloading) {
             return;
         }
-        modelButton.setEnabled(true);
-        modelButton.setText(modelFileStore.isModelInstalled() ? "LLM listo" : "Modelo");
+        new Thread(() -> {
+            try {
+                localModelPreloading = true;
+                localLlmEngine.preload();
+            } catch (RuntimeException error) {
+                Log.e(TAG, "Local model preload failed.", error);
+            } finally {
+                localModelPreloading = false;
+            }
+        }).start();
+    }
+
+    private void updateModelStatus() {
+        if (modelStatus == null) {
+            return;
+        }
+        if (modelFileStore.isModelInstalled()) {
+            modelStatus.setVisibility(View.GONE);
+            return;
+        }
+        setModelStatus("Preparando LLM");
+    }
+
+    private void setModelStatus(String status) {
+        if (modelStatus != null) {
+            modelStatus.setVisibility(View.VISIBLE);
+            modelStatus.setText(status);
+        }
     }
 
     private void startVoiceInput() {

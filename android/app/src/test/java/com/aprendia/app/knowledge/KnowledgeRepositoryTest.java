@@ -21,7 +21,10 @@ public final class KnowledgeRepositoryTest {
                     "Un sustantivo es una palabra que nombra personas, animales, lugares o cosas. Por ejemplo: nina, perro, escuela, rio y cuaderno."),
             new KnowledgeEntry("ambiental-agua", "Educacion ambiental", "Cuidado del agua",
                     new String[]{"agua", "cuidar", "rio", "quebrada", "ahorrar"},
-                    "El agua se cuida cerrando la llave cuando no se usa, no botando basura en rios o quebradas y usando solo la cantidad necesaria para las actividades diarias.")
+                    "El agua se cuida cerrando la llave cuando no se usa, no botando basura en rios o quebradas y usando solo la cantidad necesaria para las actividades diarias."),
+            new KnowledgeEntry("ciencias-gatos", "Ciencias naturales", "Gatos domesticos",
+                    new String[]{"gato", "gatos", "felino", "especie", "felis catus"},
+                    "Los gatos domesticos son mamiferos y felinos. Su especie se llama Felis catus.")
     ));
 
     @Test
@@ -85,5 +88,13 @@ public final class KnowledgeRepositoryTest {
         KnowledgeEntry entry = specificRepository.findBestEntry("Que son las fases de la luna?");
         assertNotNull(entry);
         assertEquals("Fases de la Luna", entry.getTitle());
+    }
+
+    @Test
+    public void findBestEntry_returnsCatSpeciesEntryWithMinorTypo() {
+        KnowledgeEntry entry = repository.findBestEntry("A que especie pertenecen lo gatos?");
+
+        assertNotNull(entry);
+        assertEquals("Gatos domesticos", entry.getTitle());
     }
 }
