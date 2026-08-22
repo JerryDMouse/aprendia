@@ -46,6 +46,21 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/model_button"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/pill_bg"
+            android:fontFamily="@font/fredoka"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="Modelo"
+            android:textAllCaps="false"
+            android:textColor="@color/aprendia_ink"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/new_chat_button"
             android:layout_width="wrap_content"
             android:layout_height="48dp"

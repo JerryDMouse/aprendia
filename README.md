@@ -11,7 +11,7 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 | Base de conocimiento local | Precargada, cerrada y de solo lectura (117 temas) |
 | Búsqueda offline | Textual por palabras clave, priorizando coincidencias específicas |
 | Respuestas controladas | Basadas solo en fragmentos encontrados |
-| LLM local | Preparado para Qwen2.5-0.5B-Instruct GGUF Q4 mediante motor local llama.cpp |
+| LLM local | Integrado con `llama.cpp` nativo para Qwen2.5-0.5B-Instruct GGUF Q4 |
 | Filtro de seguridad infantil | Bloquea temas inapropiados antes y después de responder |
 | Historial local | Android: `SharedPreferences`; Web: `localStorage` |
 | Lectura en voz alta | Android: `TextToSpeech` (`es-CO`); Web: `speechSynthesis` |
@@ -29,7 +29,7 @@ AprendIA es una app educativa offline-first para niños de básica primaria en z
 | 0.2.1 | Micrófono con reconocimiento de voz `es-CO` y streaming de respuestas |
 | 0.3.0 | Base de conocimiento expandida a 117 temas desde 3 libros SEP de tercero (Ciencias Naturales, Español, Matemáticas) cargados desde `assets/knowledge/*.json` |
 | 0.3.1 | Búsqueda que prioriza coincidencias específicas (frases largas como "fases de la luna" sobre palabras genéricas como "luna") |
-| 0.4.0 | Integración controlada de LLM local: prompt restringido a básica primaria, detección de modelo Qwen2.5-0.5B GGUF y fallback si el modelo no está instalado |
+| 0.4.0 | Integración funcional de LLM local con `llama.cpp`: importador de modelo GGUF, JNI nativo, prompt restringido a básica primaria y fallback si el modelo no está instalado |
 
 ## Cómo Probar Rápido En Navegador
 
@@ -111,9 +111,9 @@ Estas limitaciones mantienen el prototipo simple, explicable, offline y adecuado
 
 ## Modelo local LLM
 
-La app queda preparada para usar **Qwen2.5-0.5B-Instruct GGUF Q4**, un modelo ligero y multilingüe recomendado para pruebas locales en Android.
+La app usa un backend nativo `llama.cpp` (`libaprendia_llama.so`) y queda preparada para ejecutar **Qwen2.5-0.5B-Instruct GGUF Q4**, un modelo ligero y multilingüe recomendado para pruebas locales en Android.
 
-El archivo del modelo no se versiona ni se empaqueta dentro del APK. Debe instalarse en el almacenamiento privado de la app con el nombre:
+El archivo del modelo no se versiona ni se empaqueta dentro del APK. Debe importarse desde la app con el botón **Modelo**. Internamente se guarda con el nombre:
 
 ```text
 qwen2.5-0.5b-instruct-q4.gguf
@@ -126,3 +126,10 @@ Ruta esperada dentro del dispositivo:
 ```
 
 El LLM solo se usa cuando la búsqueda local encuentra material escolar relevante. Si no hay material, si el modelo no está instalado o si el motor local falla, AprendIA conserva la respuesta segura basada en la base de conocimiento local.
+
+Limitaciones actuales del LLM local:
+
+- El APK nativo se genera solo para `arm64-v8a` porque es el ABI realista para ejecutar el modelo.
+- La primera carga del modelo puede tardar varios segundos.
+- El modelo puede requerir aproximadamente 700 MB a 1.2 GB de RAM durante inferencia.
+- Debe probarse en dispositivo físico; el emulador no es una referencia fiable para rendimiento.

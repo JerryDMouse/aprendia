@@ -2,8 +2,10 @@ package com.aprendia.app;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,7 +20,6 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
@@ -29,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.aprendia.app.data.HistoryStore;
 import com.aprendia.app.domain.Answer;
@@ -40,12 +42,14 @@ import com.aprendia.app.llm.LlamaCppLocalLlmEngine;
 import com.aprendia.app.llm.ModelFileStore;
 import com.aprendia.app.safety.SafetyFilter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 public final class MainActivity extends Activity {
     private static final int REQUEST_RECORD_AUDIO = 100;
+    private static final int REQUEST_MODEL_FILE = 200;
     private static final int STREAM_CHARS_PER_TICK = 3;
     private static final long STREAM_TICK_MS = 30;
 
@@ -54,8 +58,10 @@ public final class MainActivity extends Activity {
     private EditText questionInput;
     private ScrollView chatScroll;
     private ImageButton micButton;
+    private Button modelButton;
     private HistoryStore historyStore;
     private AnswerQuestionUseCase answerQuestionUseCase;
+    private ModelFileStore modelFileStore;
     private TextToSpeech textToSpeech;
     private SpeechRecognizer speechRecognizer;
     private final Handler handler = new Handler(Looper.getMainLooper());
@@ -74,10 +80,11 @@ public final class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         historyStore = new HistoryStore(this);
+        modelFileStore = new ModelFileStore(this);
         answerQuestionUseCase = new AnswerQuestionUseCase(
                 new KnowledgeRepository(KnowledgeAssetsLoader.load(this)),
                 new SafetyFilter(),
-                new LlamaCppLocalLlmEngine(new ModelFileStore(this))
+                new LlamaCppLocalLlmEngine(modelFileStore)
         );
         font = getResources().getFont(R.font.fredoka);
 
@@ -87,6 +94,7 @@ public final class MainActivity extends Activity {
         chatScroll = findViewById(R.id.chat_scroll);
         questionInput = findViewById(R.id.question_input);
         micButton = findViewById(R.id.mic_button);
+        modelButton = findViewById(R.id.model_button);
 
         configureComposer();
         configureChips();
@@ -116,6 +124,14 @@ public final class MainActivity extends Activity {
             startVoiceInput();
         } else {
             setListeningState(false);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_MODEL_FILE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            importModel(data.getData());
         }
     }
 
@@ -168,6 +184,10 @@ public final class MainActivity extends Activity {
     }
 
     private void configureTopBar() {
+        updateModelButton();
+        modelButton.setTypeface(font, Typeface.BOLD);
+        modelButton.setOnClickListener(view -> openModelPicker());
+
         Button newChatButton = findViewById(R.id.new_chat_button);
         newChatButton.setTypeface(font, Typeface.BOLD);
         newChatButton.setOnClickListener(view -> {
@@ -186,11 +206,51 @@ public final class MainActivity extends Activity {
         if (question.isEmpty()) {
             return;
         }
-        Answer answer = answerQuestionUseCase.answer(question);
-        historyStore.append(new ChatRecord(question, answer.getText(), answer.getSource(), System.currentTimeMillis()));
         questionInput.setText("");
         hideKeyboard();
-        renderHistory(true);
+        Toast.makeText(this, "Buscando en el material escolar...", Toast.LENGTH_SHORT).show();
+        new Thread(() -> {
+            Answer answer = answerQuestionUseCase.answer(question);
+            runOnUiThread(() -> {
+                historyStore.append(new ChatRecord(question, answer.getText(), answer.getSource(), System.currentTimeMillis()));
+                renderHistory(true);
+            });
+        }).start();
+    }
+
+    private void openModelPicker() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("*/*");
+        startActivityForResult(intent, REQUEST_MODEL_FILE);
+    }
+
+    private void importModel(Uri uri) {
+        modelButton.setEnabled(false);
+        modelButton.setText("Instalando...");
+        Toast.makeText(this, "Copiando modelo local. Esto puede tardar.", Toast.LENGTH_LONG).show();
+        new Thread(() -> {
+            try {
+                modelFileStore.importFrom(uri);
+                runOnUiThread(() -> {
+                    updateModelButton();
+                    Toast.makeText(this, "Modelo local instalado.", Toast.LENGTH_LONG).show();
+                });
+            } catch (IOException error) {
+                runOnUiThread(() -> {
+                    updateModelButton();
+                    Toast.makeText(this, "No se pudo instalar el modelo.", Toast.LENGTH_LONG).show();
+                });
+            }
+        }).start();
+    }
+
+    private void updateModelButton() {
+        if (modelButton == null) {
+            return;
+        }
+        modelButton.setEnabled(true);
+        modelButton.setText(modelFileStore.isModelInstalled() ? "LLM listo" : "Modelo");
     }
 
     private void startVoiceInput() {

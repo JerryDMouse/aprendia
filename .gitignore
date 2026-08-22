@@ -9,4 +9,6 @@ local.properties
 *.iml
 .idea/
 .kotlin/
+.cxx/
+*/.cxx/
 *.apk

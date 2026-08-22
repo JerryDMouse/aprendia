@@ -5,6 +5,7 @@ plugins {
 android {
     namespace = "com.aprendia.app"
     compileSdk = 35
+    ndkVersion = "27.2.12479018"
 
     defaultConfig {
         applicationId = "com.aprendia.app"
@@ -12,11 +13,21 @@ android {
         targetSdk = 35
         versionCode = 6
         versionName = "0.4.0"
+        ndk {
+            abiFilters += listOf("arm64-v8a")
+        }
     }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = "3.22.1"
+        }
     }
 }
 
